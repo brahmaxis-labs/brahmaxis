@@ -5,38 +5,35 @@ import { useEffect, useRef, useState } from "react";
 const steps = [
   {
     number: "I",
-    title: "Connect your tools",
-    description: "Integrate with your existing stack in minutes. We support 200+ data sources out of the box.",
-    code: `import { optimus } from '@optimus/core'
-
-optimus.connect({
-  source: 'your-database',
-  sync: true
+    title: "Discover the outcome",
+    description: "Clarify business goals, users, risks, timeline, data model, and what success must look like.",
+    code: `const discovery = await aarambh.scope({
+  goals: ['revenue', 'speed', 'reliability'],
+  constraints: ['timeline', 'budget', 'team'],
+  output: 'clear-delivery-plan'
 })`,
   },
   {
     number: "II",
-    title: "Build your workflow",
-    description: "Design powerful automations with our visual builder or write code directly.",
-    code: `optimus.workflow('process', {
-  trigger: 'event',
-  actions: [
-    'validate',
-    'transform', 
-    'deliver'
-  ]
+    title: "Design the system",
+    description: "Map architecture, workflows, integrations, milestones, and the decisions that reduce delivery risk.",
+    code: `const plan = aarambh.design({
+  architecture: 'scalable',
+  ux: 'workflow-first',
+  delivery: 'milestone-based'
 })`,
   },
   {
     number: "III",
-    title: "Ship to production",
-    description: "Deploy globally with zero configuration. Your app goes live in under 30 seconds.",
-    code: `optimus.deploy({
-  target: 'production',
-  regions: 'auto'
+    title: "Build, ship, harden",
+    description: "Deliver in tight loops with reviewable code, automated releases, monitoring, and clean handover.",
+    code: `await aarambh.ship({
+  quality: ['tests', 'observability', 'docs'],
+  deploy: 'production',
+  handover: true
 })
 
-// Deployed to 12 regions`,
+// Built to run, not just demo`,
   },
 ];
 
@@ -95,9 +92,9 @@ export function HowItWorksSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Three steps.
+            Clear process.
             <br />
-            <span className="text-background/50">Infinite possibilities.</span>
+            <span className="text-background/50">Less ambiguity, faster shipping.</span>
           </h2>
         </div>
 

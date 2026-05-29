@@ -21,9 +21,18 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Optimus - Platform to Create',
-  description: 'The creative platform for teams who ship. Build, deploy, and scale with unprecedented velocity.',
-  generator: 'v0.app',
+  title: 'Aarambh | Software Consulting & Freelance Engineering',
+  description: 'Senior software consulting for backend, web, mobile, cloud, DevOps, AI automation, and contract engineering.',
+  keywords: [
+    'software consulting',
+    'freelance engineering',
+    'backend development',
+    'web development',
+    'mobile app development',
+    'DevOps',
+    'AI automation',
+    'cloud deployment',
+  ],
 }
 
 export default function RootLayout({

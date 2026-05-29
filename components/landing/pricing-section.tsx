@@ -1,113 +1,90 @@
 "use client";
 
-import { useState } from "react";
 import { ArrowRight, Check } from "lucide-react";
 
 const plans = [
   {
-    name: "Starter",
-    description: "For individuals and small projects",
-    price: { monthly: 0, annual: 0 },
+    name: "Sprint",
+    description: "For focused builds and urgent delivery needs",
+    price: "2-4 weeks",
     features: [
-      "Up to 3 projects",
-      "1GB storage",
-      "Community support",
-      "Basic analytics",
-      "SSL certificates",
+      "Defined outcome and scope",
+      "Senior implementation",
+      "Weekly delivery review",
+      "Deployment-ready handover",
     ],
-    cta: "Start free",
+    cta: "Plan a sprint",
     popular: false,
   },
   {
-    name: "Pro",
-    description: "For growing teams and businesses",
-    price: { monthly: 29, annual: 24 },
+    name: "Build Partner",
+    description: "For MVPs, platforms, apps, and modernization",
+    price: "6-12 weeks",
     features: [
-      "Unlimited projects",
-      "100GB storage",
-      "Priority support",
-      "Advanced analytics",
-      "Custom domains",
-      "Team collaboration",
-      "API access",
+      "Architecture and delivery plan",
+      "Backend, web, mobile, cloud",
+      "CI/CD and observability",
+      "Product-minded execution",
+      "Documentation and transition",
     ],
-    cta: "Start trial",
+    cta: "Start discovery",
     popular: true,
   },
   {
-    name: "Enterprise",
-    description: "For large-scale operations",
-    price: { monthly: null, annual: null },
+    name: "Embedded Engineer",
+    description: "For contract engineering inside your roadmap",
+    price: "Monthly",
     features: [
-      "Everything in Pro",
-      "Unlimited storage",
-      "24/7 dedicated support",
-      "Custom integrations",
-      "SLA guarantee",
-      "On-premise option",
-      "Security audit",
-      "Custom contracts",
+      "Senior capacity on demand",
+      "Existing codebase onboarding",
+      "Feature delivery and refactors",
+      "Technical leadership support",
+      "Flexible collaboration model",
     ],
-    cta: "Contact sales",
+    cta: "Check availability",
     popular: false,
   },
 ];
 
-export function PricingSection() {
-  const [isAnnual, setIsAnnual] = useState(true);
+const faqs = [
+  {
+    question: "Can Aarambh join an existing engineering team?",
+    answer: "Yes. Work can be scoped as embedded contract engineering, independent delivery, or technical leadership support.",
+  },
+  {
+    question: "Do you handle deployment and DevOps?",
+    answer: "Yes. Cloud setup, CI/CD, monitoring, rollback paths, and production readiness can be included.",
+  },
+  {
+    question: "What projects are a good fit?",
+    answer: "Backend systems, web apps, mobile apps, AI automation, cloud deployment, platform modernization, and urgent product delivery.",
+  },
+  {
+    question: "How does a project start?",
+    answer: "A short discovery call turns goals, constraints, and risks into a clear scope, timeline, and first milestone.",
+  },
+];
 
+export function PricingSection() {
   return (
     <section id="pricing" className="relative py-32 lg:py-40 border-t border-foreground/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="max-w-3xl mb-20">
           <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-6">
-            Pricing
+            Engagements
           </span>
           <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-foreground mb-6">
-            Simple, transparent
+            Flexible ways
             <br />
-            <span className="text-stroke">pricing</span>
+            <span className="text-stroke">to work</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl">
-            Start free and scale as you grow. No hidden fees, no surprises.
+            Pick the collaboration model that matches your roadmap, risk, and timeline.
           </p>
         </div>
 
-        {/* Billing Toggle */}
-        <div className="flex items-center gap-4 mb-16">
-          <span
-            className={`text-sm transition-colors ${
-              !isAnnual ? "text-foreground" : "text-muted-foreground"
-            }`}
-          >
-            Monthly
-          </span>
-          <button
-            onClick={() => setIsAnnual(!isAnnual)}
-            className="relative w-14 h-7 bg-foreground/10 rounded-full p-1 transition-colors hover:bg-foreground/20"
-          >
-            <div
-              className={`w-5 h-5 bg-foreground rounded-full transition-transform duration-300 ${
-                isAnnual ? "translate-x-7" : "translate-x-0"
-              }`}
-            />
-          </button>
-          <span
-            className={`text-sm transition-colors ${
-              isAnnual ? "text-foreground" : "text-muted-foreground"
-            }`}
-          >
-            Annual
-          </span>
-          {isAnnual && (
-            <span className="ml-2 px-2 py-1 bg-foreground text-primary-foreground text-xs font-mono">
-              Save 17%
-            </span>
-          )}
-        </div>
-
-        {/* Pricing Cards */}
+        {/* Engagement Cards */}
         <div className="grid md:grid-cols-3 gap-px bg-foreground/10">
           {plans.map((plan, idx) => (
             <div
@@ -133,16 +110,9 @@ export function PricingSection() {
 
               {/* Price */}
               <div className="mb-8 pb-8 border-b border-foreground/10">
-                {plan.price.monthly !== null ? (
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-display text-5xl lg:text-6xl text-foreground">
-                      ${isAnnual ? plan.price.annual : plan.price.monthly}
-                    </span>
-                    <span className="text-muted-foreground">/month</span>
-                  </div>
-                ) : (
-                  <span className="font-display text-4xl text-foreground">Custom</span>
-                )}
+                <span className="font-display text-4xl lg:text-5xl text-foreground">
+                  {plan.price}
+                </span>
               </div>
 
               {/* Features */}
@@ -170,13 +140,53 @@ export function PricingSection() {
           ))}
         </div>
 
-        {/* Bottom Note */}
-        <p className="mt-12 text-center text-sm text-muted-foreground">
-          All plans include automatic updates, HTTPS, and DDoS protection.{" "}
-          <a href="#" className="underline underline-offset-4 hover:text-foreground transition-colors">
-            Compare all features
-          </a>
-        </p>
+        {/* FAQ and Contact */}
+        <div className="mt-24 grid lg:grid-cols-2 gap-12 lg:gap-20">
+          <div>
+            <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-6">
+              FAQ
+            </span>
+            <div className="space-y-4">
+              {faqs.map((faq) => (
+                <details key={faq.question} className="border border-foreground/10 p-6 group">
+                  <summary className="cursor-pointer list-none font-medium text-foreground flex items-center justify-between gap-4">
+                    {faq.question}
+                    <span className="text-muted-foreground group-open:rotate-45 transition-transform">+</span>
+                  </summary>
+                  <p className="mt-4 text-muted-foreground leading-relaxed">{faq.answer}</p>
+                </details>
+              ))}
+            </div>
+          </div>
+
+          <form className="border border-foreground/10 p-8 lg:p-10">
+            <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-6">
+              Contact
+            </span>
+            <div className="grid gap-5">
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                Name
+                <input name="name" className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="Your name" />
+              </label>
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                Email
+                <input name="email" type="email" className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="you@company.com" />
+              </label>
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                Project need
+                <input name="project" className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="Backend, web, mobile, DevOps, AI automation..." />
+              </label>
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                Message
+                <textarea name="message" className="min-h-36 bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="What outcome are you trying to create?" />
+              </label>
+              <button className="w-full py-4 bg-foreground text-primary-foreground flex items-center justify-center gap-2 text-sm font-medium transition-all group hover:bg-foreground/90" type="submit">
+                Send project brief
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   );

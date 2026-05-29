@@ -4,35 +4,35 @@ import { ArrowUpRight } from "lucide-react";
 import { AnimatedWave } from "./animated-wave";
 
 const footerLinks = {
-  Product: [
-    { name: "Features", href: "#features" },
-    { name: "How it works", href: "#how-it-works" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Integrations", href: "#integrations" },
+  Services: [
+    { name: "Backend", href: "#features" },
+    { name: "Web", href: "#features" },
+    { name: "Mobile", href: "#features" },
+    { name: "DevOps", href: "#features" },
   ],
-  Developers: [
-    { name: "Documentation", href: "#developers" },
-    { name: "API Reference", href: "#" },
-    { name: "SDK", href: "#developers" },
-    { name: "Status", href: "#" },
+  Capabilities: [
+    { name: "Cloud deployment", href: "#developers" },
+    { name: "AI automation", href: "#developers" },
+    { name: "Contract engineering", href: "#pricing" },
+    { name: "Technical strategy", href: "#how-it-works" },
   ],
   Company: [
     { name: "About", href: "#" },
-    { name: "Blog", href: "#" },
-    { name: "Careers", href: "#", badge: "Hiring" },
-    { name: "Contact", href: "#" },
+    { name: "Case studies", href: "#studio" },
+    { name: "Process", href: "#how-it-works" },
+    { name: "Contact", href: "#pricing" },
   ],
   Legal: [
     { name: "Privacy", href: "#" },
     { name: "Terms", href: "#" },
-    { name: "Security", href: "#security" },
+    { name: "Delivery standards", href: "#security" },
   ],
 };
 
 const socialLinks = [
-  { name: "Twitter", href: "#" },
   { name: "GitHub", href: "#" },
   { name: "LinkedIn", href: "#" },
+  { name: "Email", href: "mailto:hello@aarambh.dev" },
 ];
 
 export function FooterSection() {
@@ -50,12 +50,11 @@ export function FooterSection() {
             {/* Brand Column */}
             <div className="col-span-2">
               <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display">Optimus</span>
-                <span className="text-xs text-muted-foreground font-mono">TM</span>
+                <span className="text-2xl font-display">Aarambh</span>
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                The platform for teams who ship. Build, deploy, and scale with unprecedented velocity.
+                Software consulting and freelance engineering for teams that need dependable delivery.
               </p>
 
               {/* Social Links */}
@@ -85,11 +84,6 @@ export function FooterSection() {
                         className="text-sm text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-2"
                       >
                         {link.name}
-                        {"badge" in link && link.badge && (
-                          <span className="text-xs px-2 py-0.5 bg-foreground text-background rounded-full">
-                            {link.badge}
-                          </span>
-                        )}
                       </a>
                     </li>
                   ))}
@@ -102,13 +96,13 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            2025 Optimus. All rights reserved.
+            2026 Aarambh. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500" />
-              All systems operational
+              Available for select projects
             </span>
           </div>
         </div>

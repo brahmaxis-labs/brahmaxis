@@ -5,52 +5,52 @@ import { Copy, Check } from "lucide-react";
 
 const codeExamples = [
   {
-    label: "Install",
-    code: `npm install @optimus/sdk
+    label: "Backend",
+    code: `services/
+  auth/
+  billing/
+  workflows/
+  integrations/
 
-# or
-yarn add @optimus/sdk
-pnpm add @optimus/sdk`,
-  },
-  {
-    label: "Initialize",
-    code: `import { Optimus } from '@optimus/sdk'
-
-const optimus = new Optimus({
-  apiKey: process.env.OPTIMUS_KEY
+api.get('/customers/:id', requireAuth, async (req) => {
+  return customerService.summary(req.params.id)
 })`,
   },
   {
-    label: "Deploy",
-    code: `const app = await optimus.deploy({
-  name: 'my-app',
-  region: 'auto',
-  scaling: {
-    min: 1,
-    max: 100
-  }
-})
-
-console.log('Live at:', app.url)`,
+    label: "Mobile",
+    code: `const release = {
+  platforms: ['ios', 'android'],
+  analytics: true,
+  crashReporting: true,
+  rollout: 'staged'
+}`,
+  },
+  {
+    label: "AI",
+    code: `const automation = await agent.run({
+  task: 'summarize-intake',
+  sources: ['email', 'crm', 'docs'],
+  reviewRequired: true
+})`,
   },
 ];
 
 const features = [
   { 
-    title: "TypeScript native", 
-    description: "Full type safety with auto-generated types."
+    title: "Backend and APIs", 
+    description: "Node.js, Python, PostgreSQL, Redis, queues, auth, and third-party integrations."
   },
   { 
-    title: "Zero config", 
-    description: "Sensible defaults that just work."
+    title: "Web and frontend", 
+    description: "Next.js, React, TypeScript, Tailwind, design systems, dashboards, and portals."
   },
   { 
-    title: "Edge-ready", 
-    description: "Runs anywhere: Node, Deno, Bun, browsers."
+    title: "Mobile apps", 
+    description: "Flutter, React Native, iOS, Android, analytics, release workflows, and store readiness."
   },
   { 
-    title: "12KB gzipped", 
-    description: "Lightweight with zero dependencies."
+    title: "Cloud and automation", 
+    description: "AWS, Docker, CI/CD, observability, infrastructure as code, and AI workflow agents."
   },
 ];
 
@@ -119,16 +119,15 @@ export function DevelopersSection() {
           >
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              For developers
+              Engineering stack
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Built by devs.
+              Modern tech.
               <br />
-              <span className="text-muted-foreground">For devs.</span>
+              <span className="text-muted-foreground">Strong fundamentals.</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              A thoughtfully designed SDK that gets out of your way. 
-              Ship faster with intuitive APIs and exceptional documentation.
+              Tools are chosen for the project, not fashion. The goal is clear: ship software that performs, scales, and stays maintainable.
             </p>
             
             {/* Features */}
@@ -220,11 +219,11 @@ export function DevelopersSection() {
             {/* Links */}
             <div className="mt-6 flex items-center gap-6 text-sm">
               <a href="#" className="text-foreground hover:underline underline-offset-4">
-                Read the docs
+                Discuss your stack
               </a>
               <span className="text-foreground/20">|</span>
               <a href="#" className="text-muted-foreground hover:text-foreground">
-                View on GitHub
+                Review architecture
               </a>
             </div>
           </div>
