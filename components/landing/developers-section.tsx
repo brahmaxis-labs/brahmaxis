@@ -38,7 +38,7 @@ api.get('/customers/:id', requireAuth, async (req) => {
 const features = [
   { 
     title: "Backend and APIs", 
-    description: "Node.js, Python, PostgreSQL, Redis, queues, auth, and third-party integrations."
+    description: "Node.js, Java, Python, PostgreSQL, Redis, queues, auth, and third-party integrations."
   },
   { 
     title: "Web and frontend", 

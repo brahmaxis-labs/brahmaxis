@@ -8,6 +8,7 @@ const integrations = [
   { name: "TypeScript", category: "Language" },
   { name: "Node.js", category: "Backend" },
   { name: "Python", category: "Automation" },
+  { name: "Java", category: "Backend" },
   { name: "PostgreSQL", category: "Database" },
   { name: "Redis", category: "Cache" },
   { name: "AWS", category: "Cloud" },
