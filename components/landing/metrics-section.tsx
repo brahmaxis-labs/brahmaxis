@@ -12,7 +12,6 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated) {
           setHasAnimated(true);
-          let start = 0;
           const duration = 2000;
           const startTime = performance.now();
 
@@ -46,28 +45,28 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
 
 const metrics = [
   { 
-    value: 41, 
+    value: 7, 
     suffix: "", 
     prefix: "",
-    label: "Percent faster internal workflows",
+    label: "Service areas covered",
   },
   { 
-    value: 10, 
-    suffix: "w", 
+    value: 3, 
+    suffix: "", 
     prefix: "",
-    label: "Mobile product launch window",
+    label: "Engagement models",
   },
   { 
-    value: 18, 
-    suffix: "h", 
+    value: 1, 
+    suffix: "", 
     prefix: "",
-    label: "Manual work saved weekly",
+    label: "Delivery partner",
   },
   { 
-    value: 99, 
-    suffix: "%", 
+    value: 0, 
+    suffix: "", 
     prefix: "",
-    label: "Production-readiness target",
+    label: "Platform lock-in",
   },
 ];
 
@@ -101,16 +100,16 @@ export function MetricsSection() {
           <div>
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Case studies
+              Delivery focus
             </span>
             <h2
               className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Outcomes you
+              Credibility without
               <br />
-              can point to.
+              inflated claims.
             </h2>
           </div>
           <div className="flex items-center gap-4 font-mono text-sm text-muted-foreground">

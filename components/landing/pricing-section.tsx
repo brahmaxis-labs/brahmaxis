@@ -67,7 +67,7 @@ const faqs = [
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="relative py-32 lg:py-40 border-t border-foreground/10">
+    <section id="engagements" className="relative py-32 lg:py-40 border-t border-foreground/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="max-w-3xl mb-20">
@@ -126,7 +126,8 @@ export function PricingSection() {
               </ul>
 
               {/* CTA */}
-              <button
+              <a
+                href="#contact"
                 className={`w-full py-4 flex items-center justify-center gap-2 text-sm font-medium transition-all group ${
                   plan.popular
                     ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
@@ -135,7 +136,7 @@ export function PricingSection() {
               >
                 {plan.cta}
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </button>
+              </a>
             </div>
           ))}
         </div>
@@ -159,27 +160,39 @@ export function PricingSection() {
             </div>
           </div>
 
-          <form className="border border-foreground/10 p-8 lg:p-10">
+          <form
+            id="contact"
+            action="mailto:hello@aarambh.dev"
+            method="post"
+            encType="text/plain"
+            className="border border-foreground/10 p-8 lg:p-10 scroll-mt-24"
+          >
             <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-6">
               Contact
             </span>
             <div className="grid gap-5">
               <label className="grid gap-2 text-sm text-muted-foreground">
                 Name
-                <input name="name" className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="Your name" />
+                <input name="name" required className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="Your name" />
               </label>
               <label className="grid gap-2 text-sm text-muted-foreground">
                 Email
-                <input name="email" type="email" className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="you@company.com" />
+                <input name="email" type="email" required className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="you@company.com" />
               </label>
               <label className="grid gap-2 text-sm text-muted-foreground">
                 Project need
-                <input name="project" className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="Backend, web, mobile, DevOps, AI automation..." />
+                <input name="project" required className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="Backend, web, mobile, DevOps, AI automation..." />
               </label>
               <label className="grid gap-2 text-sm text-muted-foreground">
                 Message
-                <textarea name="message" className="min-h-36 bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="What outcome are you trying to create?" />
+                <textarea name="message" required className="min-h-36 bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="What outcome are you trying to create?" />
               </label>
+              <p className="text-sm text-muted-foreground">
+                Prefer email? Write to{" "}
+                <a className="text-foreground underline underline-offset-4" href="mailto:hello@aarambh.dev?subject=Project%20enquiry%20for%20Aarambh">
+                  hello@aarambh.dev
+                </a>
+              </p>
               <button className="w-full py-4 bg-foreground text-primary-foreground flex items-center justify-center gap-2 text-sm font-medium transition-all group hover:bg-foreground/90" type="submit">
                 Send project brief
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />

@@ -21,10 +21,11 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Aarambh | Software Consulting & Freelance Engineering',
-  description: 'Senior software consulting for backend, web, mobile, cloud, DevOps, AI automation, and contract engineering.',
+  title: 'Aarambh | Software Consulting & Product Engineering',
+  description: 'Aarambh builds backend systems, web platforms, mobile apps, cloud deployments, DevOps workflows, and AI automation for teams that need dependable delivery.',
   keywords: [
     'software consulting',
+    'product engineering',
     'freelance engineering',
     'backend development',
     'web development',
@@ -32,6 +33,7 @@ export const metadata: Metadata = {
     'DevOps',
     'AI automation',
     'cloud deployment',
+    'contract engineering',
   ],
 }
 

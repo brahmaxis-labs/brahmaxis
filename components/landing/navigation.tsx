@@ -8,7 +8,7 @@ const navLinks = [
   { name: "Services", href: "#features" },
   { name: "Process", href: "#how-it-works" },
   { name: "Stack", href: "#developers" },
-  { name: "Contact", href: "#pricing" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export function Navigation() {
@@ -64,15 +64,12 @@ export function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <a href="#studio" className={`text-foreground/70 hover:text-foreground transition-all duration-500 ${isScrolled ? "text-xs" : "text-sm"}`}>
-              Case studies
-            </a>
             <Button
               asChild
               size="sm"
               className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
             >
-              <a href="#pricing">Start a project</a>
+              <a href="#contact">Start a project</a>
             </Button>
           </div>
 
@@ -131,18 +128,10 @@ export function Navigation() {
           >
             <Button 
               asChild
-              variant="outline" 
-              className="flex-1 rounded-full h-14 text-base"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              <a href="#studio">Case studies</a>
-            </Button>
-            <Button 
-              asChild
               className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <a href="#pricing">Start a project</a>
+              <a href="#contact">Start a project</a>
             </Button>
           </div>
         </div>

@@ -122,7 +122,7 @@ export function HeroSection() {
               size="lg" 
               className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
             >
-              <a href="#pricing">
+              <a href="#contact">
                 Book a consultation
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </a>
@@ -150,10 +150,10 @@ export function HeroSection() {
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-16">
               {[
-                { value: "10+ yrs", label: "delivery experience", company: "PRODUCT" },
-                { value: "7", label: "core service areas", company: "ENGINEERING" },
-                { value: "24/7", label: "production mindset", company: "OPS" },
-                { value: "1 team", label: "strategy to launch", company: "AARAMBH" },
+                { value: "Backend", label: "APIs, data, integrations", company: "SYSTEMS" },
+                { value: "Web + Mobile", label: "apps and platforms", company: "PRODUCT" },
+                { value: "Cloud", label: "deployments and DevOps", company: "OPS" },
+                { value: "AI", label: "automation and internal tools", company: "WORKFLOWS" },
               ].map((stat) => (
                 <div key={`${stat.company}-${i}`} className="flex items-baseline gap-4">
                   <span className="text-4xl lg:text-5xl font-display">{stat.value}</span>

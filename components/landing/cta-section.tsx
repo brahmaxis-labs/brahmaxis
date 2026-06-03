@@ -67,7 +67,7 @@ export function CtaSection() {
                     size="lg"
                     className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
                   >
-                    <a href="#pricing">
+                    <a href="#contact">
                       Start a project
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                     </a>
@@ -78,7 +78,7 @@ export function CtaSection() {
                     variant="outline"
                     className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
                   >
-                    <a href="#pricing">Send brief</a>
+                    <a href="#contact">Send brief</a>
                   </Button>
                 </div>
 

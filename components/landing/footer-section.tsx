@@ -1,39 +1,25 @@
-"use client";
-
-import { ArrowUpRight } from "lucide-react";
 import { AnimatedWave } from "./animated-wave";
 
 const footerLinks = {
   Services: [
-    { name: "Backend", href: "#features" },
-    { name: "Web", href: "#features" },
-    { name: "Mobile", href: "#features" },
-    { name: "DevOps", href: "#features" },
+    { name: "Backend engineering", href: "#features" },
+    { name: "Web platforms", href: "#features" },
+    { name: "Mobile apps", href: "#features" },
+    { name: "Cloud and DevOps", href: "#features" },
   ],
-  Capabilities: [
-    { name: "Cloud deployment", href: "#developers" },
-    { name: "AI automation", href: "#developers" },
-    { name: "Contract engineering", href: "#pricing" },
-    { name: "Technical strategy", href: "#how-it-works" },
+  Engagements: [
+    { name: "Product sprint", href: "#engagements" },
+    { name: "MVP build", href: "#engagements" },
+    { name: "Embedded engineering", href: "#engagements" },
+    { name: "Technical consulting", href: "#how-it-works" },
   ],
   Company: [
-    { name: "About", href: "#" },
-    { name: "Case studies", href: "#studio" },
     { name: "Process", href: "#how-it-works" },
-    { name: "Contact", href: "#pricing" },
-  ],
-  Legal: [
-    { name: "Privacy", href: "#" },
-    { name: "Terms", href: "#" },
+    { name: "Tech stack", href: "#developers" },
     { name: "Delivery standards", href: "#security" },
+    { name: "Contact", href: "#contact" },
   ],
 };
-
-const socialLinks = [
-  { name: "GitHub", href: "#" },
-  { name: "LinkedIn", href: "#" },
-  { name: "Email", href: "mailto:hello@aarambh.dev" },
-];
 
 export function FooterSection() {
   return (
@@ -54,22 +40,15 @@ export function FooterSection() {
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                Software consulting and freelance engineering for teams that need dependable delivery.
+                Software consulting and product engineering for teams that need dependable delivery from idea to production.
               </p>
 
-              {/* Social Links */}
-              <div className="flex gap-6">
-                {socialLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1 group"
-                  >
-                    {link.name}
-                    <ArrowUpRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                  </a>
-                ))}
-              </div>
+              <a
+                href="mailto:hello@aarambh.dev?subject=Project%20enquiry%20for%20Aarambh"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                hello@aarambh.dev
+              </a>
             </div>
 
             {/* Link Columns */}
