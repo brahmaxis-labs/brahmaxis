@@ -1,40 +1,47 @@
 import React from "react"
-import type { Metadata } from 'next'
-import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { GeistSans } from 'geist/font/sans'
+import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const instrumentSans = Instrument_Sans({ 
-  subsets: ["latin"],
-  variable: '--font-instrument'
-});
-
-const instrumentSerif = Instrument_Serif({ 
-  subsets: ["latin"],
-  weight: "400",
-  variable: '--font-instrument-serif'
-});
-
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ["latin"],
-  variable: '--font-jetbrains'
-});
+const title = 'Brahmaxis | Product Engineering for MVPs, IoT, Analytics, and Edge-Cloud'
+const description = 'Brahmaxis builds deployable MVPs, IoT systems, analytics platforms, infrastructure, and edge-cloud products using the engineering playbook behind ParkTek and the Brahmastra accelerator.'
 
 export const metadata: Metadata = {
-  title: 'Aarambh | Software Consulting & Product Engineering',
-  description: 'Aarambh builds backend systems, web platforms, mobile apps, cloud deployments, DevOps workflows, and AI automation for teams that need dependable delivery.',
+  metadataBase: new URL('https://brahmaxis.com'),
+  title,
+  description,
   keywords: [
-    'software consulting',
+    'Brahmaxis',
     'product engineering',
-    'freelance engineering',
-    'backend development',
-    'web development',
-    'mobile app development',
-    'DevOps',
-    'AI automation',
-    'cloud deployment',
-    'contract engineering',
+    'MVP development',
+    'IoT engineering',
+    'edge-cloud systems',
+    'analytics platforms',
+    'infrastructure deployment',
+    'fractional CTO',
+    'ParkTek',
+    'Brahmastra',
   ],
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: 'https://brahmaxis.com',
+    siteName: 'Brahmaxis',
+    title,
+    description,
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+  },
+}
+
+export const viewport: Viewport = {
+  themeColor: '#0a0b10',
+  colorScheme: 'dark',
 }
 
 export default function RootLayout({
@@ -43,8 +50,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
+    <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
+      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>

@@ -34,6 +34,8 @@ export function AnimatedWave() {
       ctx.font = "14px monospace";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
+      // Cool indigo "axis" tint to match the brand palette
+      const [r, g, b] = [129, 140, 248];
 
       const cols = Math.floor(rect.width / 20);
       const rows = Math.floor(rect.height / 20);
@@ -54,7 +56,7 @@ export function AnimatedWave() {
           const charIndex = Math.floor(normalized * (chars.length - 1));
           const alpha = 0.15 + normalized * 0.5;
 
-          ctx.fillStyle = `rgba(0, 0, 0, ${alpha})`;
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
           ctx.fillText(chars[charIndex], px, py);
         }
       }

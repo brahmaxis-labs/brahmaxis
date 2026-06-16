@@ -4,64 +4,88 @@ import { ArrowRight, Check } from "lucide-react";
 
 const plans = [
   {
-    name: "Sprint",
-    description: "For focused builds and urgent delivery needs",
-    price: "2-4 weeks",
+    name: "Discovery Sprint",
+    description: "For teams that need clarity before committing serious build budget",
+    price: "1-2 weeks",
     features: [
-      "Defined outcome and scope",
-      "Senior implementation",
-      "Weekly delivery review",
-      "Deployment-ready handover",
+      "Product requirements and MVP scope",
+      "Technical architecture",
+      "Infra plan, budget, and timeline",
+      "Risk assessment and build roadmap",
     ],
-    cta: "Plan a sprint",
+    cta: "Book discovery",
     popular: false,
   },
   {
-    name: "Build Partner",
-    description: "For MVPs, platforms, apps, and modernization",
+    name: "MVP Build",
+    description: "For founders and teams that need a usable product, not only a mockup",
     price: "6-12 weeks",
     features: [
-      "Architecture and delivery plan",
-      "Backend, web, mobile, cloud",
-      "CI/CD and observability",
-      "Product-minded execution",
+      "Backend, frontend, database, auth",
+      "Dashboard, APIs, deployment",
+      "Monitoring basics",
       "Documentation and transition",
     ],
-    cta: "Start discovery",
+    cta: "Start MVP scope",
     popular: true,
   },
   {
-    name: "Embedded Engineer",
-    description: "For contract engineering inside your roadmap",
+    name: "Edge-Cloud Pilot",
+    description: "For IoT, hardware, logistics, and operations teams testing real-world systems",
+    price: "8-16 weeks",
+    features: [
+      "Device integration and edge service",
+      "Telemetry ingestion and dashboard",
+      "Alerts and deployment setup",
+      "Pilot support and ops documentation",
+    ],
+    cta: "Plan pilot",
+    popular: false,
+  },
+  {
+    name: "Prototype Sprint",
+    description: "For validating feasibility with something real enough to demo",
+    price: "2-4 weeks",
+    features: [
+      "Clickable or functional prototype",
+      "Basic backend and dashboard",
+      "Core workflow",
+      "Demo deployment and feasibility report",
+    ],
+    cta: "Prototype first",
+    popular: false,
+  },
+  {
+    name: "Fractional CTO",
+    description: "For teams that need architecture and product judgment without a full-time CTO",
     price: "Monthly",
     features: [
-      "Senior capacity on demand",
-      "Existing codebase onboarding",
-      "Feature delivery and refactors",
-      "Technical leadership support",
-      "Flexible collaboration model",
+      "Weekly architecture reviews",
+      "Roadmap and sprint planning",
+      "Hiring and vendor reviews",
+      "Delivery oversight",
     ],
-    cta: "Check availability",
+    cta: "Discuss retainer",
     popular: false,
   },
 ];
 
 const faqs = [
   {
-    question: "Can Aarambh join an existing engineering team?",
-    answer: "Yes. Work can be scoped as embedded contract engineering, independent delivery, or technical leadership support.",
+    question: "Can Brahmaxis join an existing engineering team?",
+    answer: "Yes. Work can be scoped as independent delivery, architecture support, fractional CTO guidance, or project-specific engineering.",
   },
   {
     question: "Do you handle deployment and DevOps?",
-    answer: "Yes. Cloud setup, CI/CD, monitoring, rollback paths, and production readiness can be included.",
+    answer: "Yes. Local setup, cloud deployment, CI/CD, monitoring, logging, and handover docs can be included.",
   },
   {
     question: "What projects are a good fit?",
-    answer: "Backend systems, web apps, mobile apps, AI automation, cloud deployment, platform modernization, and urgent product delivery.",
+    answer: "MVPs, IoT systems, edge-cloud pilots, analytics dashboards, infrastructure setup, and internal operations tools.",
   },
   {
     question: "How does a project start?",
-    answer: "A short discovery call turns goals, constraints, and risks into a clear scope, timeline, and first milestone.",
+    answer: "A qualification call checks problem, budget, timeline, and decision-maker, then a paid discovery sprint turns it into scope and architecture.",
   },
 ];
 
@@ -75,63 +99,67 @@ export function PricingSection() {
             Engagements
           </span>
           <h2 className="font-display text-5xl md:text-6xl lg:text-7xl tracking-tight text-foreground mb-6">
-            Flexible ways
+            Productized ways
             <br />
-            <span className="text-stroke">to work</span>
+            <span className="text-gradient-brand">to ship</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-xl">
-            Pick the collaboration model that matches your roadmap, risk, and timeline.
+            Capital-efficient packages with clear deliverables, timelines, outcomes, and decision points.
           </p>
         </div>
 
         {/* Engagement Cards */}
-        <div className="grid md:grid-cols-3 gap-px bg-foreground/10">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 items-stretch">
           {plans.map((plan, idx) => (
             <div
               key={plan.name}
-              className={`relative p-8 lg:p-12 bg-background ${
-                plan.popular ? "md:-my-4 md:py-12 lg:py-16 border-2 border-foreground" : ""
+              className={`group relative flex flex-col rounded-2xl border p-6 lg:p-7 transition-all duration-300 hover:-translate-y-1 ${
+                plan.popular
+                  ? "border-2 border-brand bg-brand/[0.05] shadow-[0_0_50px_-18px_color-mix(in_oklch,var(--brand)_60%,transparent)]"
+                  : "border-border bg-card/40 hover:border-brand/40 hover:bg-card"
               }`}
             >
               {plan.popular && (
-                <span className="absolute -top-3 left-8 px-3 py-1 bg-foreground text-primary-foreground text-xs font-mono uppercase tracking-widest">
-                  Most Popular
+                <span className="absolute -top-3 left-6 rounded-full bg-brand px-3 py-1 text-[11px] font-mono uppercase tracking-widest text-brand-foreground">
+                  Most popular
                 </span>
               )}
 
-              {/* Plan Header */}
-              <div className="mb-8">
-                <span className="font-mono text-xs text-muted-foreground">
-                  {String(idx + 1).padStart(2, "0")}
-                </span>
-                <h3 className="font-display text-3xl text-foreground mt-2">{plan.name}</h3>
-                <p className="text-sm text-muted-foreground mt-2">{plan.description}</p>
-              </div>
+              {/* Header — reserved bands keep prices aligned across cards */}
+              <span className="font-mono text-xs text-brand">
+                {String(idx + 1).padStart(2, "0")}
+              </span>
+              <h3 className="mt-3 min-h-[3.75rem] font-display text-2xl font-semibold leading-tight tracking-tight text-foreground">
+                {plan.name}
+              </h3>
+              <p className="mt-2 min-h-[6rem] text-sm text-muted-foreground leading-relaxed">
+                {plan.description}
+              </p>
 
               {/* Price */}
-              <div className="mb-8 pb-8 border-b border-foreground/10">
-                <span className="font-display text-4xl lg:text-5xl text-foreground">
+              <div className="pb-5 border-b border-border">
+                <span className="font-display text-3xl font-semibold tracking-tight text-foreground">
                   {plan.price}
                 </span>
               </div>
 
               {/* Features */}
-              <ul className="space-y-4 mb-10">
+              <ul className="mt-5 mb-6 space-y-3 flex-1">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-3">
-                    <Check className="w-4 h-4 text-foreground mt-0.5 shrink-0" />
-                    <span className="text-sm text-muted-foreground">{feature}</span>
+                  <li key={feature} className="flex items-start gap-2.5">
+                    <Check className="w-4 h-4 text-brand mt-0.5 shrink-0" />
+                    <span className="text-sm text-muted-foreground leading-snug">{feature}</span>
                   </li>
                 ))}
               </ul>
 
-              {/* CTA */}
+              {/* CTA pinned to the bottom */}
               <a
                 href="#contact"
-                className={`w-full py-4 flex items-center justify-center gap-2 text-sm font-medium transition-all group ${
+                className={`mt-auto w-full rounded-full py-3.5 flex items-center justify-center gap-2 text-sm font-medium transition-all ${
                   plan.popular
-                    ? "bg-foreground text-primary-foreground hover:bg-foreground/90"
-                    : "border border-foreground/20 text-foreground hover:border-foreground hover:bg-foreground/5"
+                    ? "bg-brand text-brand-foreground hover:bg-brand/90 shadow-lg shadow-brand/20"
+                    : "border border-border text-foreground hover:border-brand/50 hover:bg-brand/5"
                 }`}
               >
                 {plan.cta}
@@ -149,10 +177,10 @@ export function PricingSection() {
             </span>
             <div className="space-y-4">
               {faqs.map((faq) => (
-                <details key={faq.question} className="border border-foreground/10 p-6 group">
+                <details key={faq.question} className="rounded-xl border border-border bg-card/40 p-6 group transition-colors hover:border-brand/30">
                   <summary className="cursor-pointer list-none font-medium text-foreground flex items-center justify-between gap-4">
                     {faq.question}
-                    <span className="text-muted-foreground group-open:rotate-45 transition-transform">+</span>
+                    <span className="text-brand text-lg leading-none group-open:rotate-45 transition-transform">+</span>
                   </summary>
                   <p className="mt-4 text-muted-foreground leading-relaxed">{faq.answer}</p>
                 </details>
@@ -162,10 +190,10 @@ export function PricingSection() {
 
           <form
             id="contact"
-            action="mailto:hello@aarambh.dev"
+                action="mailto:hello@brahmaxis.com"
             method="post"
             encType="text/plain"
-            className="border border-foreground/10 p-8 lg:p-10 scroll-mt-24"
+            className="rounded-2xl border border-border bg-card/40 backdrop-blur-sm p-8 lg:p-10 scroll-mt-24"
           >
             <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase block mb-6">
               Contact
@@ -173,27 +201,75 @@ export function PricingSection() {
             <div className="grid gap-5">
               <label className="grid gap-2 text-sm text-muted-foreground">
                 Name
-                <input name="name" required className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="Your name" />
+                <input name="name" required className="bg-transparent rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand" placeholder="Your name" />
               </label>
               <label className="grid gap-2 text-sm text-muted-foreground">
                 Email
-                <input name="email" type="email" required className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="you@company.com" />
+                <input name="email" type="email" required className="bg-transparent rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand" placeholder="you@company.com" />
               </label>
               <label className="grid gap-2 text-sm text-muted-foreground">
-                Project need
-                <input name="project" required className="bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="Backend, web, mobile, DevOps, AI automation..." />
+                Company
+                <input name="company" required className="bg-transparent rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand" placeholder="Company name" />
+              </label>
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                What are you building?
+                <input name="project" required className="bg-transparent rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand" placeholder="MVP, IoT pilot, analytics dashboard, infra setup..." />
+              </label>
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                Current stage
+                <select name="stage" required className="bg-background rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand">
+                  <option>Idea or discovery</option>
+                  <option>Prototype exists</option>
+                  <option>MVP in progress</option>
+                  <option>Preparing for launch</option>
+                  <option>Existing system needs help</option>
+                </select>
+              </label>
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                Target launch timeline
+                <select name="timeline" required className="bg-background rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand">
+                  <option>2-4 weeks</option>
+                  <option>1-3 months</option>
+                  <option>3-6 months</option>
+                  <option>Exploring timeline</option>
+                </select>
+              </label>
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                Budget range
+                <select name="budget" required className="bg-background rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand">
+                  <option>Discovery only</option>
+                  <option>Under Rs 2L</option>
+                  <option>Rs 2L-Rs 7L</option>
+                  <option>Rs 8L-Rs 30L</option>
+                  <option>Rs 30L+</option>
+                  <option>Global budget</option>
+                </select>
+              </label>
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                Need type
+                <select name="need" required className="bg-background rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand">
+                  <option>MVP or prototype</option>
+                  <option>IoT or edge-cloud</option>
+                  <option>Analytics platform</option>
+                  <option>Infrastructure and deployment</option>
+                  <option>Fractional CTO support</option>
+                </select>
+              </label>
+              <label className="grid gap-2 text-sm text-muted-foreground">
+                Preferred call time
+                <input name="preferred_call_time" className="bg-transparent rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand" placeholder="Weekdays after 4 PM IST" />
               </label>
               <label className="grid gap-2 text-sm text-muted-foreground">
                 Message
-                <textarea name="message" required className="min-h-36 bg-transparent border border-foreground/10 px-4 py-3 text-foreground outline-none focus:border-foreground/40" placeholder="What outcome are you trying to create?" />
+                <textarea name="message" required className="min-h-36 bg-transparent rounded-lg border border-border px-4 py-3 text-foreground outline-none focus:border-brand" placeholder="What outcome are you trying to create?" />
               </label>
               <p className="text-sm text-muted-foreground">
                 Prefer email? Write to{" "}
-                <a className="text-foreground underline underline-offset-4" href="mailto:hello@aarambh.dev?subject=Project%20enquiry%20for%20Aarambh">
-                  hello@aarambh.dev
+                <a className="text-foreground underline underline-offset-4" href="mailto:hello@brahmaxis.com?subject=Project%20enquiry%20for%20Brahmaxis">
+                  hello@brahmaxis.com
                 </a>
               </p>
-              <button className="w-full py-4 bg-foreground text-primary-foreground flex items-center justify-center gap-2 text-sm font-medium transition-all group hover:bg-foreground/90" type="submit">
+              <button className="w-full rounded-full py-4 bg-brand text-brand-foreground flex items-center justify-center gap-2 text-sm font-medium transition-all group hover:bg-brand/90 shadow-lg shadow-brand/20" type="submit">
                 Send project brief
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </button>

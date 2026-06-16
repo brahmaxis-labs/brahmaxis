@@ -1,43 +1,34 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
+import { useReveal } from "./use-reveal";
 
 function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffix?: string; prefix?: string }) {
+  const [ref, inView] = useReveal<HTMLDivElement>(0.6);
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
-          const duration = 2000;
-          const startTime = performance.now();
-
-          const animate = (currentTime: number) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 3);
-            setCount(Math.floor(eased * end));
-
-            if (progress < 1) {
-              requestAnimationFrame(animate);
-            }
-          };
-
-          requestAnimationFrame(animate);
-        }
-      },
-      { threshold: 0.5 }
-    );
-
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [end, hasAnimated]);
+    if (!inView) return;
+    if (end === 0) {
+      setCount(0);
+      return;
+    }
+    const duration = 1600;
+    const startTime = performance.now();
+    const id = setInterval(() => {
+      const progress = Math.min((performance.now() - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * end));
+      if (progress >= 1) {
+        setCount(end);
+        clearInterval(id);
+      }
+    }, 32);
+    return () => clearInterval(id);
+  }, [inView, end]);
 
   return (
-    <div ref={ref} className="text-6xl lg:text-8xl font-display tracking-tight">
+    <div ref={ref} className="text-6xl lg:text-8xl font-display font-semibold tracking-tight text-gradient-brand">
       {prefix}{count.toLocaleString()}{suffix}
     </div>
   );
@@ -45,80 +36,64 @@ function AnimatedCounter({ end, suffix = "", prefix = "" }: { end: number; suffi
 
 const metrics = [
   { 
-    value: 7, 
-    suffix: "", 
-    prefix: "",
-    label: "Service areas covered",
-  },
-  { 
     value: 3, 
     suffix: "", 
     prefix: "",
-    label: "Engagement models",
-  },
-  { 
-    value: 1, 
-    suffix: "", 
-    prefix: "",
-    label: "Delivery partner",
+    label: "Core proof layers: product, infrastructure, operations",
   },
   { 
     value: 0, 
     suffix: "", 
     prefix: "",
-    label: "Platform lock-in",
+    label: "Source code or sensitive data shown",
+  },
+  { 
+    value: 1, 
+    suffix: "", 
+    prefix: "",
+    label: "ParkTek case study to anchor credibility",
+  },
+  { 
+    value: 0, 
+    suffix: "", 
+    prefix: "",
+    label: "Unauthorized employer endorsements",
   },
 ];
 
 export function MetricsSection() {
-  const [time, setTime] = useState(new Date());
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const interval = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
 
   return (
-    <section id="studio" ref={sectionRef} className="relative py-24 lg:py-32 border-y border-foreground/10">
+    <section id="case-studies" ref={sectionRef} className="relative py-24 lg:py-32 border-y border-foreground/10">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16 lg:mb-24">
           <div>
             <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
               <span className="w-8 h-px bg-foreground/30" />
-              Delivery focus
+              Case Studies
             </span>
             <h2
               className={`text-4xl lg:text-6xl font-display tracking-tight transition-all duration-700 ${
                 isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
               }`}
             >
-              Credibility without
+              ParkTek proof
               <br />
-              inflated claims.
+              without IP leakage.
             </h2>
+            <p className="mt-8 max-w-3xl text-xl text-muted-foreground leading-relaxed">
+              ParkTek was built from the ground up by the founding team. We use sanitized architecture, deployment lessons, operational constraints, and business outcomes as proof, not private code or sensitive dashboards.
+            </p>
           </div>
           <div className="flex items-center gap-4 font-mono text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Live
+              Sanitized
             </span>
             <span className="text-foreground/30">|</span>
-            <span>{time.toLocaleTimeString()}</span>
+            <span>Case study ready</span>
           </div>
         </div>
         

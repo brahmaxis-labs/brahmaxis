@@ -1,31 +1,37 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useReveal } from "./use-reveal";
 
 const features = [
   {
     number: "01",
-    title: "Backend development",
-    description: "APIs, databases, integrations, queues, payments, and service architecture built for reliability and scale.",
+    title: "MVP and Prototype Development",
+    description: "For founders and innovation teams that need a working product with backend, frontend, database, auth, APIs, deployment, documentation, and a first user-testable release.",
     visual: "deploy",
   },
   {
     number: "02",
-    title: "Web development",
-    description: "Fast, premium web apps and websites using modern TypeScript stacks, clean UX, and measurable performance.",
+    title: "IoT and Edge-Cloud Engineering",
+    description: "For hardware, logistics, facilities, and smart infrastructure teams that need device communication, edge gateways, telemetry, cloud backends, dashboards, alerts, and real-world pilots.",
     visual: "ai",
   },
   {
     number: "03",
-    title: "Android and iOS apps",
-    description: "Mobile products with clear user flows, production analytics, secure releases, and maintainable foundations.",
+    title: "Analytics Platforms",
+    description: "For operations and business teams that need data pipelines, KPI systems, reports, decision tools, dashboards, and practical forecasting workflows.",
     visual: "collab",
   },
   {
     number: "04",
-    title: "Cloud, DevOps, and AI automation",
-    description: "Deployments, CI/CD, observability, infrastructure automation, workflow agents, and internal AI tools.",
+    title: "Infrastructure and Deployment",
+    description: "For teams preparing to launch or clean up messy delivery with Dockerized setup, CI/CD, environments, monitoring, logging, cost control, and handover docs.",
     visual: "security",
+  },
+  {
+    number: "05",
+    title: "Fractional CTO Support",
+    description: "For non-technical founders and SMEs that need architecture, roadmap, sprint planning, technical due diligence, vendor review, hiring guidance, and build-vs-buy decisions.",
+    visual: "deploy",
   },
 ];
 
@@ -81,6 +87,15 @@ function DeployVisual() {
 }
 
 function AIVisual() {
+  const nodes = [
+    { x: "150", y: "80" },
+    { x: "125", y: "123.301" },
+    { x: "75", y: "123.301" },
+    { x: "50", y: "80" },
+    { x: "75", y: "36.699" },
+    { x: "125", y: "36.699" },
+  ];
+
   return (
     <svg viewBox="0 0 200 160" className="w-full h-full">
       {/* Central node */}
@@ -89,17 +104,15 @@ function AIVisual() {
       </circle>
       
       {/* Orbiting nodes */}
-      {[0, 1, 2, 3, 4, 5].map((i) => {
-        const angle = (i * 60) * (Math.PI / 180);
-        const radius = 50;
+      {nodes.map((node, i) => {
         return (
           <g key={i}>
             {/* Connection line */}
             <line
               x1="100"
               y1="80"
-              x2={100 + Math.cos(angle) * radius}
-              y2={80 + Math.sin(angle) * radius}
+              x2={node.x}
+              y2={node.y}
               stroke="currentColor"
               strokeWidth="1"
               opacity="0.3"
@@ -115,8 +128,8 @@ function AIVisual() {
             
             {/* Outer node */}
             <circle
-              cx={100 + Math.cos(angle) * radius}
-              cy={80 + Math.sin(angle) * radius}
+              cx={node.x}
+              cy={node.y}
               r="6"
               fill="none"
               stroke="currentColor"
@@ -243,74 +256,65 @@ function AnimatedVisual({ type }: { type: string }) {
   }
 }
 
-function FeatureCard({ feature, index }: { feature: typeof features[0]; index: number }) {
-  const [isVisible, setIsVisible] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.2 }
-    );
-
-    if (cardRef.current) observer.observe(cardRef.current);
-    return () => observer.disconnect();
-  }, []);
+function FeatureCard({
+  feature,
+  index,
+  featured,
+}: {
+  feature: typeof features[0];
+  index: number;
+  featured?: boolean;
+}) {
+  const [cardRef, isVisible] = useReveal<HTMLDivElement>();
 
   return (
     <div
       ref={cardRef}
-      className={`group relative transition-all duration-700 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
-      }`}
-      style={{ transitionDelay: `${index * 100}ms` }}
+      className={`group relative overflow-hidden rounded-2xl border border-border bg-card/40 backdrop-blur-sm p-8 lg:p-10 transition-all duration-500 hover:border-brand/40 hover:bg-card hover:-translate-y-1 hover:shadow-[0_18px_50px_-18px_color-mix(in_oklch,var(--brand)_35%,transparent)] ${
+        featured ? "sm:col-span-2" : ""
+      } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+      style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 py-12 lg:py-20 border-b border-foreground/10">
-        {/* Number */}
-        <div className="shrink-0">
-          <span className="font-mono text-sm text-muted-foreground">{feature.number}</span>
-        </div>
-        
-        {/* Content */}
-        <div className="flex-1 grid lg:grid-cols-2 gap-8 items-center">
-          <div>
-            <h3 className="text-3xl lg:text-4xl font-display mb-4 group-hover:translate-x-2 transition-transform duration-500">
+      {/* hover sheen */}
+      <div className="pointer-events-none absolute -top-24 -right-24 h-48 w-48 rounded-full bg-brand/10 opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+
+      {featured ? (
+        <div className="relative flex h-full flex-col gap-8 lg:flex-row lg:items-center">
+          <div className="flex-1">
+            <span className="font-mono text-xs text-brand">{feature.number}</span>
+            <h3 className="mt-4 text-2xl lg:text-3xl font-display font-semibold tracking-tight">
               {feature.title}
             </h3>
-            <p className="text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-3 max-w-md text-muted-foreground leading-relaxed">
               {feature.description}
             </p>
           </div>
-          
-          {/* Visual */}
-          <div className="flex justify-center lg:justify-end">
-            <div className="w-48 h-40 text-foreground">
+          <div className="h-36 w-44 shrink-0 self-center text-brand/80 transition-colors duration-500 group-hover:text-brand">
+            <AnimatedVisual type={feature.visual} />
+          </div>
+        </div>
+      ) : (
+        <div className="relative flex h-full flex-col">
+          <div className="flex items-start justify-between">
+            <span className="font-mono text-xs text-brand">{feature.number}</span>
+            <div className="h-16 w-20 text-brand/70 transition-colors duration-500 group-hover:text-brand">
               <AnimatedVisual type={feature.visual} />
             </div>
           </div>
+          <h3 className="mt-6 text-xl font-display font-semibold tracking-tight">
+            {feature.title}
+          </h3>
+          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+            {feature.description}
+          </p>
         </div>
-      </div>
+      )}
     </div>
   );
 }
 
 export function FeaturesSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.1 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const [sectionRef, isVisible] = useReveal<HTMLDivElement>();
 
   return (
     <section
@@ -330,16 +334,24 @@ export function FeaturesSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Senior execution.
+            Build whole systems,
             <br />
-            <span className="text-muted-foreground">From idea to production.</span>
+            <span className="text-muted-foreground">not only screens.</span>
           </h2>
+          <p className="mt-8 max-w-3xl text-xl text-muted-foreground leading-relaxed">
+            Serious products need backend logic, deployment, infrastructure, analytics, monitoring, edge/cloud reliability, documentation, and a clear operating model.
+          </p>
         </div>
 
-        {/* Features List */}
-        <div>
+        {/* Bento grid */}
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {features.map((feature, index) => (
-            <FeatureCard key={feature.number} feature={feature} index={index} />
+            <FeatureCard
+              key={feature.number}
+              feature={feature}
+              index={index}
+              featured={index === 0}
+            />
           ))}
         </div>
       </div>

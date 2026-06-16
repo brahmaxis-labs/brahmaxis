@@ -6,8 +6,10 @@ import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { name: "Services", href: "#features" },
-  { name: "Process", href: "#how-it-works" },
-  { name: "Stack", href: "#developers" },
+  { name: "Brahmastra", href: "#brahmastra" },
+  { name: "Case Studies", href: "#case-studies" },
+  { name: "Team", href: "#team" },
+  { name: "Insights", href: "#insights" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -25,9 +27,9 @@ export function Navigation() {
 
   return (
     <header
-      className={`fixed z-50 transition-all duration-500 ${
-        isScrolled 
-          ? "top-4 left-4 right-4" 
+      className={`fixed z-50 animate-nav-in transition-all duration-500 ${
+        isScrolled
+          ? "top-4 left-4 right-4"
           : "top-0 left-0 right-0"
       }`}
     >
@@ -44,8 +46,12 @@ export function Navigation() {
           }`}
         >
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <span className={`font-display tracking-tight transition-all duration-500 ${isScrolled ? "text-xl" : "text-2xl"}`}>Aarambh</span>
+          <a href="#" className="flex items-center gap-2.5 group">
+            <span className="relative flex h-6 w-6 items-center justify-center" aria-hidden>
+              <span className="absolute inset-0 rounded-md bg-brand/15 ring-1 ring-brand/40" />
+              <span className="h-3 w-3 rounded-[3px] bg-brand rotate-45 transition-transform duration-500 group-hover:rotate-[135deg]" />
+            </span>
+            <span className={`font-display font-semibold tracking-tight transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>Brahmaxis</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -67,9 +73,9 @@ export function Navigation() {
             <Button
               asChild
               size="sm"
-              className={`bg-foreground hover:bg-foreground/90 text-background rounded-full transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
+              className={`bg-brand hover:bg-brand/90 text-brand-foreground rounded-full shadow-md shadow-brand/20 transition-all duration-500 ${isScrolled ? "px-4 h-8 text-xs" : "px-6"}`}
             >
-              <a href="#contact">Start a project</a>
+              <a href="#contact">Book a Discovery Call</a>
             </Button>
           </div>
 
@@ -126,12 +132,12 @@ export function Navigation() {
           }`}
           style={{ transitionDelay: isMobileMenuOpen ? "300ms" : "0ms" }}
           >
-            <Button 
+            <Button
               asChild
-              className="flex-1 bg-foreground text-background rounded-full h-14 text-base"
+              className="flex-1 bg-brand text-brand-foreground rounded-full h-14 text-base"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <a href="#contact">Start a project</a>
+              <a href="#contact">Book a Discovery Call</a>
             </Button>
           </div>
         </div>

@@ -1,26 +1,14 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatedTetrahedron } from "./animated-tetrahedron";
+import { useReveal } from "./use-reveal";
 
 export function CtaSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const [sectionRef, isVisible] = useReveal<HTMLElement>();
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setIsVisible(true);
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -34,16 +22,18 @@ export function CtaSection() {
     <section ref={sectionRef} className="relative py-24 lg:py-32 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div
-          className={`relative border border-foreground transition-all duration-1000 ${
+          className={`relative overflow-hidden rounded-3xl border border-border bg-card/40 backdrop-blur-sm transition-all duration-1000 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
           onMouseMove={handleMouseMove}
         >
+          {/* Ambient brand glow */}
+          <div className="glow-brand w-[520px] h-[520px] -top-40 -right-20 opacity-40" />
           {/* Spotlight effect */}
-          <div 
-            className="absolute inset-0 opacity-10 pointer-events-none transition-opacity duration-300"
+          <div
+            className="absolute inset-0 opacity-100 pointer-events-none transition-opacity duration-300"
             style={{
-              background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, rgba(0,0,0,0.15), transparent 40%)`
+              background: `radial-gradient(600px circle at ${mousePosition.x}% ${mousePosition.y}%, color-mix(in oklch, var(--brand) 18%, transparent), transparent 45%)`
             }}
           />
           
@@ -52,23 +42,23 @@ export function CtaSection() {
               {/* Left content */}
               <div className="flex-1">
                 <h2 className="text-4xl lg:text-7xl font-display tracking-tight mb-8 leading-[0.95]">
-                  Ready to ship
+                  Have an MVP,
                   <br />
-                  the next version?
+                  IoT product, or analytics system?
                 </h2>
 
                 <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-xl">
-                  Bring your product goal, delivery blocker, or automation idea. Get a clear technical path and a realistic first milestone.
+                  Bring your product goal, operational problem, or pilot idea. Get a clear technical path, realistic scope, and capital-efficient first milestone.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start gap-4">
                   <Button
                     asChild
                     size="lg"
-                    className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
+                    className="bg-brand hover:bg-brand/90 text-brand-foreground px-8 h-14 text-base rounded-full group shadow-lg shadow-brand/20"
                   >
                     <a href="#contact">
-                      Start a project
+                      Book a Discovery Call
                       <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                     </a>
                   </Button>
@@ -76,14 +66,14 @@ export function CtaSection() {
                     asChild
                     size="lg"
                     variant="outline"
-                    className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
+                    className="h-14 px-8 text-base rounded-full border-border bg-background/40 hover:bg-accent hover:text-accent-foreground"
                   >
-                    <a href="#contact">Send brief</a>
+                    <a href="#features">Explore Services</a>
                   </Button>
                 </div>
 
                 <p className="text-sm text-muted-foreground mt-8 font-mono">
-                  Outcome-first consulting. Production-minded engineering.
+                  Work with a team powered by Brahmastra.
                 </p>
               </div>
 

@@ -1,163 +1,136 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { AnimatedSphere } from "./animated-sphere";
 
-const words = ["build", "modernize", "automate", "ship"];
-
 export function HeroSection() {
   const [isVisible, setIsVisible] = useState(false);
-  const [wordIndex, setWordIndex] = useState(0);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % words.length);
-    }, 2500);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden">
+    <section className="relative min-h-[820px] lg:min-h-screen flex flex-col overflow-hidden">
+      {/* Structural grid + ambient brand glow */}
+      <div className="absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_at_50%_0%,black,transparent_75%)] opacity-70 pointer-events-none" />
+      <div className="glow-brand w-[700px] h-[700px] -top-40 -right-40 opacity-50" />
+      <div className="glow-brand w-[420px] h-[420px] top-1/3 -left-32 opacity-25" />
+
       {/* Animated sphere background */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] lg:w-[800px] lg:h-[800px] opacity-40 pointer-events-none">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[420px] h-[420px] sm:w-[600px] sm:h-[600px] lg:w-[760px] lg:h-[760px] opacity-30 pointer-events-none">
         <AnimatedSphere />
       </div>
-      
-      {/* Subtle grid lines */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
-        {[...Array(8)].map((_, i) => (
-          <div
-            key={`h-${i}`}
-            className="absolute h-px bg-foreground/10"
-            style={{
-              top: `${12.5 * (i + 1)}%`,
-              left: 0,
-              right: 0,
-            }}
-          />
-        ))}
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={`v-${i}`}
-            className="absolute w-px bg-foreground/10"
-            style={{
-              left: `${8.33 * (i + 1)}%`,
-              top: 0,
-              bottom: 0,
-            }}
-          />
-        ))}
-      </div>
-      
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12 py-32 lg:py-40">
+
+      <div className="relative z-10 flex-1 flex flex-col justify-center max-w-[1400px] mx-auto w-full px-6 lg:px-12 py-28 lg:py-32">
         {/* Eyebrow */}
-        <div 
+        <div
           className={`mb-8 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
           }`}
         >
-          <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground">
-            <span className="w-8 h-px bg-foreground/30" />
-            Software consulting for serious teams
+          <span className="inline-flex items-center gap-2.5 rounded-full border border-border bg-card/50 backdrop-blur px-4 py-1.5 text-xs font-mono text-muted-foreground">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand opacity-60" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-brand" />
+            </span>
+            Capital-efficient product engineering
           </span>
         </div>
-        
+
         {/* Main headline */}
         <div className="mb-12">
-          <h1 
-            className={`text-[clamp(3rem,12vw,10rem)] font-display leading-[0.9] tracking-tight transition-all duration-1000 ${
-              isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
-          >
-            <span className="block">Engineering</span>
-            <span className="block">
-              to{" "}
-              <span className="relative inline-block">
-                <span 
-                  key={wordIndex}
-                  className="inline-flex"
-                >
-                  {words[wordIndex].split("").map((char, i) => (
-                    <span
-                      key={`${wordIndex}-${i}`}
-                      className="inline-block animate-char-in"
-                      style={{
-                        animationDelay: `${i * 50}ms`,
-                      }}
-                    >
-                      {char}
-                    </span>
+          <h1 className="text-[clamp(2.75rem,8.5vw,7rem)] font-display font-semibold leading-[0.95] tracking-[-0.03em]">
+            {[
+              ["Build", "edge-cloud,", "IoT,"],
+              ["analytics,", "and", "MVP"],
+              ["products", "faster"],
+            ].map((line, li, lines) => {
+              const offset = lines
+                .slice(0, li)
+                .reduce((n, l) => n + l.length, 0);
+              return (
+                <span key={li} className="block">
+                  {line.map((word, wi) => (
+                    <Fragment key={word}>
+                      <span
+                        className={`word-rise inline-block ${
+                          word === "faster" ? "text-gradient-brand" : ""
+                        }`}
+                        style={{ animationDelay: `${0.1 + (offset + wi) * 0.07}s` }}
+                      >
+                        {word}
+                      </span>{" "}
+                    </Fragment>
                   ))}
                 </span>
-                <span className="absolute -bottom-2 left-0 right-0 h-3 bg-foreground/10" />
-              </span>
-            </span>
+              );
+            })}
           </h1>
+          <p className="mt-6 font-display text-2xl lg:text-4xl text-muted-foreground tracking-tight">
+            without enterprise bloat.
+          </p>
         </div>
-        
+
         {/* Description */}
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-end">
-          <p 
-            className={`text-xl lg:text-2xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
+          <p
+            className={`text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-xl transition-all duration-700 delay-200 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Backend systems, web platforms, mobile apps, cloud delivery, DevOps, and AI automation built around business outcomes.
+            We help founders and companies design, build, deploy, and scale real-world software systems with a proven engineering playbook.
           </p>
-          
+
           {/* CTAs */}
-          <div 
+          <div
             className={`flex flex-col sm:flex-row items-start gap-4 transition-all duration-700 delay-300 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            <Button 
+            <Button
               asChild
-              size="lg" 
-              className="bg-foreground hover:bg-foreground/90 text-background px-8 h-14 text-base rounded-full group"
+              size="lg"
+              className="bg-brand hover:bg-brand/90 text-brand-foreground px-8 h-14 text-base rounded-full group shadow-lg shadow-brand/20 transition-shadow hover:shadow-brand/30"
             >
               <a href="#contact">
-                Book a consultation
+                Book a Discovery Call
                 <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
-            <Button 
+            <Button
               asChild
-              size="lg" 
-              variant="outline" 
-              className="h-14 px-8 text-base rounded-full border-foreground/20 hover:bg-foreground/5"
+              size="lg"
+              variant="outline"
+              className="h-14 px-8 text-base rounded-full border-border bg-card/40 backdrop-blur hover:bg-accent hover:text-accent-foreground"
             >
-              <a href="#features">View services</a>
+              <a href="#features">Explore Services</a>
             </Button>
           </div>
         </div>
-        
+
       </div>
       
-      {/* Stats marquee - full width outside container */}
-      <div 
-        className={`absolute bottom-24 left-0 right-0 transition-all duration-700 delay-500 ${
+      {/* Stats marquee - full width, in normal flow at the bottom */}
+      <div
+        className={`relative z-10 shrink-0 pb-12 lg:pb-16 transition-all duration-700 delay-500 ${
           isVisible ? "opacity-100" : "opacity-0"
         }`}
       >
-        <div className="flex gap-16 marquee whitespace-nowrap">
+        <div className="flex gap-10 lg:gap-16 marquee whitespace-nowrap">
           {[...Array(2)].map((_, i) => (
             <div key={i} className="flex gap-16">
               {[
-                { value: "Backend", label: "APIs, data, integrations", company: "SYSTEMS" },
-                { value: "Web + Mobile", label: "apps and platforms", company: "PRODUCT" },
-                { value: "Cloud", label: "deployments and DevOps", company: "OPS" },
-                { value: "AI", label: "automation and internal tools", company: "WORKFLOWS" },
+                { value: "MVPs", label: "usable products, not decks", company: "PRODUCT" },
+                { value: "IoT", label: "devices, telemetry, pilots", company: "EDGE" },
+                { value: "Analytics", label: "dashboards and decisions", company: "DATA" },
+                { value: "Infra", label: "deploy, monitor, hand over", company: "OPS" },
               ].map((stat) => (
-                <div key={`${stat.company}-${i}`} className="flex items-baseline gap-4">
-                  <span className="text-4xl lg:text-5xl font-display">{stat.value}</span>
-                  <span className="text-sm text-muted-foreground">
+                <div key={`${stat.company}-${i}`} className="flex items-baseline gap-3 lg:gap-4">
+                  <span className="text-2xl sm:text-3xl lg:text-5xl font-display">{stat.value}</span>
+                  <span className="text-xs lg:text-sm text-muted-foreground">
                     {stat.label}
                     <span className="block font-mono text-xs mt-1">{stat.company}</span>
                   </span>

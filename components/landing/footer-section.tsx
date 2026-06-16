@@ -2,22 +2,23 @@ import { AnimatedWave } from "./animated-wave";
 
 const footerLinks = {
   Services: [
-    { name: "Backend engineering", href: "#features" },
-    { name: "Web platforms", href: "#features" },
-    { name: "Mobile apps", href: "#features" },
-    { name: "Cloud and DevOps", href: "#features" },
+    { name: "MVP development", href: "#features" },
+    { name: "IoT edge-cloud", href: "#features" },
+    { name: "Analytics platforms", href: "#features" },
+    { name: "Infrastructure", href: "#features" },
   ],
   Engagements: [
-    { name: "Product sprint", href: "#engagements" },
+    { name: "Discovery sprint", href: "#engagements" },
+    { name: "Prototype sprint", href: "#engagements" },
     { name: "MVP build", href: "#engagements" },
-    { name: "Embedded engineering", href: "#engagements" },
-    { name: "Technical consulting", href: "#how-it-works" },
+    { name: "Fractional CTO", href: "#engagements" },
   ],
   Company: [
+    { name: "Brahmastra", href: "#brahmastra" },
+    { name: "Case Studies", href: "#case-studies" },
+    { name: "Team", href: "#team" },
+    { name: "Insights", href: "#insights" },
     { name: "Process", href: "#how-it-works" },
-    { name: "Tech stack", href: "#developers" },
-    { name: "Delivery standards", href: "#security" },
-    { name: "Contact", href: "#contact" },
   ],
 };
 
@@ -35,19 +36,23 @@ export function FooterSection() {
           <div className="grid grid-cols-2 md:grid-cols-6 gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="col-span-2">
-              <a href="#" className="inline-flex items-center gap-2 mb-6">
-                <span className="text-2xl font-display">Aarambh</span>
+              <a href="#" className="inline-flex items-center gap-2.5 mb-6 group">
+                <span className="relative flex h-6 w-6 items-center justify-center" aria-hidden>
+                  <span className="absolute inset-0 rounded-md bg-brand/15 ring-1 ring-brand/40" />
+                  <span className="h-3 w-3 rounded-[3px] bg-brand rotate-45 transition-transform duration-500 group-hover:rotate-[135deg]" />
+                </span>
+                <span className="text-2xl font-display font-semibold tracking-tight">Brahmaxis</span>
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
-                Software consulting and product engineering for teams that need dependable delivery from idea to production.
+                Product engineering for deployable MVPs, IoT systems, analytics platforms, infrastructure, and edge-cloud products.
               </p>
 
               <a
-                href="mailto:hello@aarambh.dev?subject=Project%20enquiry%20for%20Aarambh"
+                href="mailto:hello@brahmaxis.com?subject=Project%20enquiry%20for%20Brahmaxis"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
-                hello@aarambh.dev
+                hello@brahmaxis.com
               </a>
             </div>
 
@@ -75,7 +80,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            2026 Aarambh. All rights reserved.
+            © 2026 Brahmaxis. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">

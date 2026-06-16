@@ -78,6 +78,8 @@ export function AnimatedTetrahedron() {
       ctx.font = "18px monospace";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
+      // Cool indigo "axis" tint to match the brand palette
+      const [r, g, b] = [129, 140, 248];
 
       const points: { x: number; y: number; z: number; char: string }[] = [];
 
@@ -149,7 +151,7 @@ export function AnimatedTetrahedron() {
       // Draw points
       points.forEach((point) => {
         const alpha = 0.15 + (point.z + 1.5) * 0.25;
-        ctx.fillStyle = `rgba(0, 0, 0, ${Math.min(alpha, 0.9)})`;
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${Math.min(alpha, 0.9)})`;
         ctx.fillText(point.char, point.x, point.y);
       });
 

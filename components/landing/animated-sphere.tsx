@@ -38,6 +38,8 @@ export function AnimatedSphere() {
       ctx.font = "12px monospace";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
+      // Cool indigo "axis" tint to match the brand palette
+      const [r, g, b] = [129, 140, 248];
 
       const points: { x: number; y: number; z: number; char: string }[] = [];
 
@@ -76,7 +78,7 @@ export function AnimatedSphere() {
       // Draw points
       points.forEach((point) => {
         const alpha = 0.2 + (point.z + 1) * 0.4;
-        ctx.fillStyle = `rgba(0, 0, 0, ${alpha})`;
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
         ctx.fillText(point.char, point.x, point.y);
       });
 
