@@ -51,7 +51,9 @@ export function Navigation() {
               <span className="absolute inset-0 rounded-md bg-brand/15 ring-1 ring-brand/40" />
               <span className="h-3 w-3 rounded-[3px] bg-brand rotate-45 transition-transform duration-500 group-hover:rotate-[135deg]" />
             </span>
-            <span className={`font-display font-semibold tracking-tight transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>Brahmaxis</span>
+            <span className={`font-display font-semibold tracking-tight transition-all duration-500 ${isScrolled ? "text-lg" : "text-xl"}`}>
+              BrahmAxis<span className="font-normal text-muted-foreground"> Labs</span>
+            </span>
           </a>
 
           {/* Desktop Navigation */}

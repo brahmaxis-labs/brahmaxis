@@ -5,15 +5,16 @@ import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const title = 'Brahmaxis | Product Engineering for MVPs, IoT, Analytics, and Edge-Cloud'
-const description = 'Brahmaxis builds deployable MVPs, IoT systems, analytics platforms, infrastructure, and edge-cloud products using the engineering playbook behind ParkTek and the Brahmastra accelerator.'
+const title = 'BrahmAxis Labs | Product Engineering for MVPs, IoT, Analytics, and Edge-Cloud'
+const description = 'BrahmAxis Labs builds deployable MVPs, IoT systems, analytics platforms, infrastructure, and edge-cloud products using the engineering playbook behind ParkTek and the Brahmastra accelerator.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://brahmaxis.com'),
   title,
   description,
   keywords: [
-    'Brahmaxis',
+    'BrahmAxis Labs',
+    'BrahmAxis',
     'product engineering',
     'MVP development',
     'IoT engineering',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://brahmaxis.com',
-    siteName: 'Brahmaxis',
+    siteName: 'BrahmAxis Labs',
     title,
     description,
   },

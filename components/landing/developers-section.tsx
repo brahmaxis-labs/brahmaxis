@@ -52,7 +52,7 @@ export function DevelopersSection() {
               <span className="text-muted-foreground">Selective experts.</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              Brahmaxis presents who owns delivery clearly: core team first, specialist bench when needed, advisor network only when genuinely involved.
+              BrahmAxis Labs presents who owns delivery clearly: core team first, specialist bench when needed, advisor network only when genuinely involved.
             </p>
 
             {/* Features */}

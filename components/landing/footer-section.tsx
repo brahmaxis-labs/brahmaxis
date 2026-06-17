@@ -41,7 +41,9 @@ export function FooterSection() {
                   <span className="absolute inset-0 rounded-md bg-brand/15 ring-1 ring-brand/40" />
                   <span className="h-3 w-3 rounded-[3px] bg-brand rotate-45 transition-transform duration-500 group-hover:rotate-[135deg]" />
                 </span>
-                <span className="text-2xl font-display font-semibold tracking-tight">Brahmaxis</span>
+                <span className="text-2xl font-display font-semibold tracking-tight">
+                  BrahmAxis<span className="font-normal text-muted-foreground"> Labs</span>
+                </span>
               </a>
 
               <p className="text-muted-foreground leading-relaxed mb-8 max-w-xs">
@@ -49,7 +51,7 @@ export function FooterSection() {
               </p>
 
               <a
-                href="mailto:hello@brahmaxis.com?subject=Project%20enquiry%20for%20Brahmaxis"
+                href="mailto:hello@brahmaxis.com?subject=Project%20enquiry%20for%20BrahmAxis%20Labs"
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 hello@brahmaxis.com
@@ -80,7 +82,7 @@ export function FooterSection() {
         {/* Bottom Bar */}
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2026 Brahmaxis. All rights reserved.
+            © 2026 BrahmAxis Labs. All rights reserved.
           </p>
 
           <div className="flex items-center gap-4 text-sm text-muted-foreground">

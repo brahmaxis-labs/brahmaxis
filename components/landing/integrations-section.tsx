@@ -38,7 +38,7 @@ export function IntegrationsSection() {
             competence.
           </h2>
           <p className="text-xl text-muted-foreground">
-            Initial writing topics should teach what Brahmaxis knows: MVP scope, IoT pilots, edge-cloud architecture, operations dashboards, infrastructure cost, and ParkTek lessons.
+            Initial writing topics should teach what BrahmAxis Labs knows: MVP scope, IoT pilots, edge-cloud architecture, operations dashboards, infrastructure cost, and ParkTek lessons.
           </p>
         </div>
 

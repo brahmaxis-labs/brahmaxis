@@ -72,7 +72,7 @@ const plans = [
 
 const faqs = [
   {
-    question: "Can Brahmaxis join an existing engineering team?",
+    question: "Can BrahmAxis Labs join an existing engineering team?",
     answer: "Yes. Work can be scoped as independent delivery, architecture support, fractional CTO guidance, or project-specific engineering.",
   },
   {
@@ -265,7 +265,7 @@ export function PricingSection() {
               </label>
               <p className="text-sm text-muted-foreground">
                 Prefer email? Write to{" "}
-                <a className="text-foreground underline underline-offset-4" href="mailto:hello@brahmaxis.com?subject=Project%20enquiry%20for%20Brahmaxis">
+                <a className="text-foreground underline underline-offset-4" href="mailto:hello@brahmaxis.com?subject=Project%20enquiry%20for%20BrahmAxis%20Labs">
                   hello@brahmaxis.com
                 </a>
               </p>

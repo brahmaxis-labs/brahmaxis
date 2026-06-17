@@ -25,7 +25,7 @@ export function ProblemSection() {
               Most MVPs fail because they are built as screens, not systems.
             </h2>
             <p className="text-xl text-muted-foreground leading-relaxed">
-              Brahmaxis helps you build the whole operating system behind the interface, from first architecture decision to deployable pilot.
+              BrahmAxis Labs helps you build the whole operating system behind the interface, from first architecture decision to deployable pilot.
             </p>
           </div>
 
