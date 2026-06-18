@@ -5,6 +5,7 @@ import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
 import { Navbar } from '@/components/site/navbar'
 import { Footer } from '@/components/site/footer'
+import { CalendlyWarmup } from '@/components/site/calendly-warmup'
 import './globals.css'
 
 const title = 'BrahmAxis Labs — Product Engineering for Revenue, Data and Operations Systems'
@@ -60,6 +61,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="font-sans antialiased">
+        {/* Warm up Calendly connections early; the idle client warmup below loads the widget script. */}
+        <link rel="preconnect" href="https://assets.calendly.com" />
+        <link rel="preconnect" href="https://calendly.com" />
+        <link rel="dns-prefetch" href="https://calendly.com" />
+        <CalendlyWarmup />
         <Navbar />
         <main className="relative min-h-screen overflow-x-hidden noise-overlay">{children}</main>
         <Footer />

@@ -42,7 +42,7 @@ export const NAV_LINKS: NavLink[] = [
   { name: "Proof", href: "/proof" },
   { name: "Process", href: "/process" },
   { name: "Insights", href: "/#insights" },
-  { name: "Contact", href: "/contact" },
+  { name: "Book a Call", href: "/contact" },
 ];
 
 /* ----------------------------------------------------------- services --- */
