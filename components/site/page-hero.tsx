@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { AnimatedSphere } from "@/components/landing/animated-sphere";
 import { GridGlow } from "./background";
 import { Pill } from "./pill";
 
@@ -17,6 +18,12 @@ export function PageHero({
   return (
     <section className="relative overflow-hidden pt-36 lg:pt-44 pb-16 lg:pb-20 border-b border-foreground/10">
       <GridGlow />
+      <div
+        className="absolute right-[-18%] top-1/2 h-[380px] w-[380px] -translate-y-1/2 opacity-20 pointer-events-none sm:right-[-10%] sm:h-[520px] sm:w-[520px] lg:right-0 lg:h-[620px] lg:w-[620px]"
+        aria-hidden
+      >
+        <AnimatedSphere />
+      </div>
       <div className="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-12">
         <Pill>{eyebrow}</Pill>
         <h1 className="mt-8 text-[clamp(2.4rem,6vw,5rem)] font-display font-semibold leading-[0.98] tracking-[-0.03em] max-w-[18ch]">
