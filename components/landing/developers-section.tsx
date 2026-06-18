@@ -110,11 +110,11 @@ export function DevelopersSection() {
               Specialist bench and advisors are brought in per project — never presented as full-time delivery owners.
             </p>
             <div className="mt-6 flex items-center gap-6 text-sm">
-              <a href="#contact" className="text-foreground hover:underline underline-offset-4">
+              <a href="/contact" className="text-foreground hover:underline underline-offset-4">
                 Discuss your build
               </a>
               <span className="text-foreground/20">|</span>
-              <a href="#how-it-works" className="text-muted-foreground hover:text-foreground">
+              <a href="/process" className="text-muted-foreground hover:text-foreground">
                 Review process
               </a>
             </div>

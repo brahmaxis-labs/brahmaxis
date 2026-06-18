@@ -1,33 +1,37 @@
-import { Navigation } from "@/components/landing/navigation";
-import { HeroSection } from "@/components/landing/hero-section";
-import { ProblemSection } from "@/components/landing/problem-section";
-import { FeaturesSection } from "@/components/landing/features-section";
-import { HowItWorksSection } from "@/components/landing/how-it-works-section";
-import { InfrastructureSection } from "@/components/landing/infrastructure-section";
-import { MetricsSection } from "@/components/landing/metrics-section";
-import { IntegrationsSection } from "@/components/landing/integrations-section";
-import { SecuritySection } from "@/components/landing/security-section";
+import { HomeHero } from "@/components/landing/home-hero";
+import { HomePain } from "@/components/landing/home-pain";
+import { HomeBuild } from "@/components/landing/home-build";
+import { HomeFounderProof } from "@/components/landing/home-founder-proof";
+import { HomeParktek } from "@/components/landing/home-parktek";
+import { HomeBrahmastra } from "@/components/landing/home-brahmastra";
+import { HomeEngagements } from "@/components/landing/home-engagements";
+import { HomeProcess } from "@/components/landing/home-process";
 import { DevelopersSection } from "@/components/landing/developers-section";
-import { PricingSection } from "@/components/landing/pricing-section";
-import { CtaSection } from "@/components/landing/cta-section";
-import { FooterSection } from "@/components/landing/footer-section";
+import { IntegrationsSection } from "@/components/landing/integrations-section";
+import { HomeFaq } from "@/components/landing/home-faq";
+import { CTASection } from "@/components/site/cta-section";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden noise-overlay">
-      <Navigation />
-      <HeroSection />
-      <ProblemSection />
-      <FeaturesSection />
-      <HowItWorksSection />
-      <InfrastructureSection />
-      <MetricsSection />
-      <IntegrationsSection />
-      <SecuritySection />
+    <>
+      <HomeHero />
+      <HomePain />
+      <HomeBuild />
+      <HomeFounderProof />
+      <HomeParktek />
+      <HomeBrahmastra />
+      <HomeEngagements />
+      <HomeProcess />
       <DevelopersSection />
-      <PricingSection />
-      <CtaSection />
-      <FooterSection />
-    </main>
+      <IntegrationsSection />
+      <HomeFaq />
+      <CTASection
+        title="Have a product, workflow, dashboard, or system to build?"
+        sub="Tell us what you are building, where it stands today, and what outcome matters. We will help you decide whether the next step is discovery, architecture, build, or production cleanup."
+        primary={{ label: "Book a Discovery Call", href: "/contact" }}
+        secondary={{ label: "Send Project Details", href: "/contact" }}
+        note="ParkTek-proven delivery · Brahmastra-powered execution"
+      />
+    </>
   );
 }

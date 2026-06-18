@@ -3,16 +3,16 @@
 import { useReveal } from "./use-reveal";
 
 const integrations = [
-  { name: "How to build an IoT MVP without overengineering", category: "Edge-cloud" },
-  { name: "Why most prototypes fail after the demo stage", category: "MVP" },
-  { name: "Edge-cloud architecture for startups", category: "Systems" },
-  { name: "How to design dashboards for operations teams", category: "Analytics" },
-  { name: "Local deployment vs cloud deployment", category: "Infra" },
-  { name: "How to reduce infrastructure cost early", category: "Cost control" },
-  { name: "Lessons from building ParkTek", category: "Case study" },
-  { name: "What founders misunderstand about MVPs", category: "Product" },
-  { name: "How to structure multi-repo systems", category: "Architecture" },
-  { name: "How to prepare for scale without overbuilding", category: "Startup engineering" },
+  { name: "Marketplace automation for Amazon sellers, done right", category: "eCommerce" },
+  { name: "Building ROAS and CAC reporting that teams trust", category: "AdTech" },
+  { name: "What a real multi-tenant SaaS MVP actually needs", category: "SaaS" },
+  { name: "Designing dashboards operations teams actually use", category: "Data" },
+  { name: "From spreadsheets to an operational data layer", category: "Internal tools" },
+  { name: "Production readiness: CI/CD, logs, and monitoring", category: "Infrastructure" },
+  { name: "Cutting cloud cost without breaking reliability", category: "Cost control" },
+  { name: "Edge-cloud architecture under field constraints", category: "Edge-cloud" },
+  { name: "How to structure multi-repo product systems", category: "Architecture" },
+  { name: "Lessons from building ParkTek operations software", category: "Case study" },
 ];
 
 export function IntegrationsSection() {
@@ -38,7 +38,7 @@ export function IntegrationsSection() {
             competence.
           </h2>
           <p className="text-xl text-muted-foreground">
-            Initial writing topics should teach what BrahmAxis Labs knows: MVP scope, IoT pilots, edge-cloud architecture, operations dashboards, infrastructure cost, and ParkTek lessons.
+            Writing that teaches what Brahmaxis knows: marketplace automation, AdOps reporting, SaaS MVP architecture, operational dashboards, infrastructure and cost, edge-cloud systems, and ParkTek lessons.
           </p>
         </div>
 

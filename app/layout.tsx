@@ -3,27 +3,34 @@ import type { Metadata, Viewport } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Analytics } from '@vercel/analytics/next'
+import { Navbar } from '@/components/site/navbar'
+import { Footer } from '@/components/site/footer'
 import './globals.css'
 
-const title = 'BrahmAxis Labs | Product Engineering for MVPs, IoT, Analytics, and Edge-Cloud'
-const description = 'BrahmAxis Labs builds deployable MVPs, IoT systems, analytics platforms, infrastructure, and edge-cloud products using the engineering playbook behind ParkTek and the Brahmastra accelerator.'
+const title = 'BrahmAxis Labs — Product Engineering for Revenue, Data and Operations Systems'
+const description = 'Brahmaxis Labs builds eCommerce automation, AdTech workflows, SaaS MVPs, dashboards, internal tools, infrastructure, and edge-cloud systems for founders and teams building serious software.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://brahmaxis.com'),
-  title,
+  title: {
+    default: title,
+    template: '%s — BrahmAxis Labs',
+  },
   description,
   keywords: [
+    'product engineering company',
+    'SaaS MVP development',
+    'eCommerce automation',
+    'AdTech engineering',
+    'internal tools development',
+    'data dashboard development',
+    'infrastructure consulting',
+    'fractional CTO India',
+    'edge cloud systems',
+    'marketplace automation',
     'BrahmAxis Labs',
-    'BrahmAxis',
-    'product engineering',
-    'MVP development',
-    'IoT engineering',
-    'edge-cloud systems',
-    'analytics platforms',
-    'infrastructure deployment',
-    'fractional CTO',
-    'ParkTek',
     'Brahmastra',
+    'ParkTek',
   ],
   alternates: { canonical: '/' },
   openGraph: {
@@ -53,7 +60,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="font-sans antialiased">
-        {children}
+        <Navbar />
+        <main className="relative min-h-screen overflow-x-hidden noise-overlay">{children}</main>
+        <Footer />
         <Analytics />
       </body>
     </html>
