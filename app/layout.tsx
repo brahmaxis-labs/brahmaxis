@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     'Brahmastra',
     'ParkTek',
   ],
+  verification: {
+    google: "S1OfFtgyX1j7yu_isav2MJUVpHiDoHX_XoWj7KDBbEs",
+  },
   alternates: { canonical: '/' },
   openGraph: {
     type: 'website',
