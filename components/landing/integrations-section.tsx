@@ -33,12 +33,12 @@ export function IntegrationsSection() {
             <span className="w-8 h-px bg-foreground/30" />
           </span>
           <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-6">
-            Content that proves
+            Content that proves{" "}
             <br />
             competence.
           </h2>
           <p className="text-xl text-muted-foreground">
-            Writing that teaches what Brahmaxis knows: marketplace automation, AdOps reporting, SaaS MVP architecture, operational dashboards, infrastructure and cost, edge-cloud systems, and ParkTek lessons.
+            Writing that teaches what Brahmaxis Labs knows: marketplace automation, AdOps reporting, SaaS MVP architecture, operational dashboards, infrastructure and cost, edge-cloud systems, and ParkTek lessons.
           </p>
         </div>
 

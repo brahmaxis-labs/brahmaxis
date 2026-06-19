@@ -1,4 +1,4 @@
-# Brahmaxis Brand Assets
+# Brahmaxis Labs Brand Assets
 
 ## Logo System
 

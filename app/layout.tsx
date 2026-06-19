@@ -8,14 +8,14 @@ import { Footer } from '@/components/site/footer'
 import { CalendlyWarmup } from '@/components/site/calendly-warmup'
 import './globals.css'
 
-const title = 'BrahmAxis Labs — Product Engineering for Revenue, Data and Operations Systems'
+const title = 'Brahmaxis Labs — Product Engineering for Revenue, Data and Operations Systems'
 const description = 'Brahmaxis Labs builds eCommerce automation, AdTech workflows, SaaS MVPs, dashboards, internal tools, infrastructure, and edge-cloud systems for founders and teams building serious software.'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://brahmaxis.com'),
   title: {
     default: title,
-    template: '%s — BrahmAxis Labs',
+    template: '%s — Brahmaxis Labs',
   },
   description,
   keywords: [
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     'fractional CTO India',
     'edge cloud systems',
     'marketplace automation',
-    'BrahmAxis Labs',
+    'Brahmaxis Labs',
     'Brahmastra',
     'ParkTek',
   ],
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://brahmaxis.com',
-    siteName: 'BrahmAxis Labs',
+    siteName: 'Brahmaxis Labs',
     title,
     description,
     images: [

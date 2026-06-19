@@ -11,7 +11,7 @@ import { SERVICES } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "From marketplace automation and AdTech workflows to SaaS MVPs, dashboards, infrastructure, and edge-cloud systems — Brahmaxis builds the software behind business execution.",
+    "From marketplace automation and AdTech workflows to SaaS MVPs, dashboards, infrastructure, and edge-cloud systems — Brahmaxis Labs builds the software behind business execution.",
   alternates: { canonical: "/services" },
 };
 
@@ -26,7 +26,7 @@ export default function ServicesPage() {
             <span className="text-gradient-brand">revenue, data, and operations</span> systems.
           </>
         }
-        sub="From marketplace automation and AdTech workflows to SaaS MVPs, dashboards, infrastructure, and edge-cloud systems — Brahmaxis builds the software behind business execution."
+        sub="From marketplace automation and AdTech workflows to SaaS MVPs, dashboards, infrastructure, and edge-cloud systems — Brahmaxis Labs builds the software behind business execution."
       >
         <Button asChild size="lg" className="bg-brand hover:bg-brand/90 text-brand-foreground px-8 h-14 text-base rounded-full">
           <Link href="/contact">Book a Discovery Call</Link>

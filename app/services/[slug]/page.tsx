@@ -129,7 +129,7 @@ export default async function ServiceDetailPage({ params }: Params) {
 
       <CTASection
         title="Have a project like this in mind?"
-        sub="Share where it stands today and the outcome that matters. We will tell you honestly whether Brahmaxis is the right fit and the best next step."
+        sub="Share where it stands today and the outcome that matters. We will tell you honestly whether Brahmaxis Labs is the right fit and the best next step."
         primary={{ label: "Book a Discovery Call", href: "/contact" }}
         secondary={{ label: "Tell us what you're building", href: "/contact" }}
       />

@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 /*
- * Brahmaxis — premium dark theme.
+ * Brahmaxis Labs — premium dark theme.
  * Cool deep-slate surfaces (hue ~265) with an indigo "axis" accent.
  * Dark is the only theme; :root and .dark hold identical values so the
  * site renders dark with or without the class on <html>.

@@ -7,7 +7,7 @@ import { CTASection } from "@/components/site/cta-section";
 export const metadata: Metadata = {
   title: "Process",
   description:
-    "How Brahmaxis works: diagnose, architect, build, deploy, and improve — a clear path from business problem to a system that runs in production.",
+    "How Brahmaxis Labs works: diagnose, architect, build, deploy, and improve — a clear path from business problem to a system that runs in production.",
   alternates: { canonical: "/process" },
 };
 

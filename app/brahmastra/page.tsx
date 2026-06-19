@@ -25,7 +25,7 @@ export default function BrahmastraPage() {
             <span className="text-gradient-brand">product engineering accelerator.</span>
           </>
         }
-        sub="Reusable architecture, CLI workflows, templates, deployment playbooks, documentation standards, and vertical kits that help Brahmaxis deliver faster and cleaner."
+        sub="Reusable architecture, CLI workflows, templates, deployment playbooks, documentation standards, and vertical kits that help Brahmaxis Labs deliver faster and cleaner."
       />
 
       {/* What it is */}

@@ -116,7 +116,7 @@ export function HowItWorksSection() {
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
             }`}
           >
-            Clear process.
+            Clear process.{" "}
             <br />
             <span className="text-foreground/50">Less ambiguity, faster shipping.</span>
           </h2>

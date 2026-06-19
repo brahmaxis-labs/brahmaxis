@@ -47,12 +47,12 @@ export function DevelopersSection() {
               Team
             </span>
             <h2 className="text-4xl lg:text-6xl font-display tracking-tight mb-8">
-              Core builders.
+              Core builders.{" "}
               <br />
               <span className="text-muted-foreground">Selective experts.</span>
             </h2>
             <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              BrahmAxis Labs presents who owns delivery clearly: core team first, specialist bench when needed, advisor network only when genuinely involved.
+              Brahmaxis Labs presents who owns delivery clearly: core team first, specialist bench when needed, advisor network only when genuinely involved.
             </p>
 
             {/* Features */}

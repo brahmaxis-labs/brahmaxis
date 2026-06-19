@@ -10,7 +10,7 @@ import { EXPERIENCE_MAP, FOUNDER_PROOF, PARKTEK_MODULES, ANON_PROOF, LEGAL_NOTES
 export const metadata: Metadata = {
   title: "Proof & Case Studies",
   description:
-    "Brahmaxis is built on hands-on experience shipping revenue-critical, operational, and infrastructure-heavy software systems — proven through ParkTek, without exposing IP.",
+    "Brahmaxis Labs is built on hands-on experience shipping revenue-critical, operational, and infrastructure-heavy software systems — proven through ParkTek, without exposing IP.",
   alternates: { canonical: "/proof" },
 };
 
@@ -24,7 +24,7 @@ export default function ProofPage() {
             Proof without the <span className="text-gradient-brand">theatre.</span>
           </>
         }
-        sub="Brahmaxis is built on hands-on experience shipping revenue-critical, operational, and infrastructure-heavy software systems."
+        sub="Brahmaxis Labs is built on hands-on experience shipping revenue-critical, operational, and infrastructure-heavy software systems."
       />
 
       {/* Experience map */}
@@ -45,7 +45,7 @@ export default function ProofPage() {
                 <tr className="bg-foreground/[0.03] border-b border-border">
                   <th className="px-6 py-4 font-mono text-xs uppercase tracking-wider text-muted-foreground w-1/4">Domain</th>
                   <th className="px-6 py-4 font-mono text-xs uppercase tracking-wider text-muted-foreground">Systems built</th>
-                  <th className="px-6 py-4 font-mono text-xs uppercase tracking-wider text-muted-foreground">What Brahmaxis can help with</th>
+                  <th className="px-6 py-4 font-mono text-xs uppercase tracking-wider text-muted-foreground">What Brahmaxis Labs can help with</th>
                 </tr>
               </thead>
               <tbody>
@@ -67,7 +67,7 @@ export default function ProofPage() {
                 <h3 className="font-display font-semibold tracking-tight">{row.domain}</h3>
                 <p className="mt-3 text-xs font-mono uppercase tracking-wider text-brand-soft">Systems built</p>
                 <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{row.built}</p>
-                <p className="mt-3 text-xs font-mono uppercase tracking-wider text-brand-soft">Brahmaxis can help</p>
+                <p className="mt-3 text-xs font-mono uppercase tracking-wider text-brand-soft">Brahmaxis Labs can help</p>
                 <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{row.help}</p>
               </div>
             ))}
@@ -157,7 +157,7 @@ export default function ProofPage() {
 
       <CTASection
         title="Want this kind of execution on your problem?"
-        sub="Tell us what you are building and where it stands. We will tell you honestly whether Brahmaxis is the right fit and what the best next step is."
+        sub="Tell us what you are building and where it stands. We will tell you honestly whether Brahmaxis Labs is the right fit and what the best next step is."
         primary={{ label: "Book a Discovery Call", href: "/contact" }}
         secondary={{ label: "Explore Services", href: "/services" }}
       />

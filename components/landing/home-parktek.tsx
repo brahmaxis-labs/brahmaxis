@@ -12,7 +12,7 @@ export function HomeParktek() {
         <SectionHeader
           eyebrow="Proof · ParkTek"
           title="Proven through ParkTek"
-          intro="ParkTek gave us the operating scars behind Brahmaxis: multi-repo systems, dashboards, infrastructure, local deployment, edge-cloud patterns, and real-world operational workflows."
+          intro="ParkTek gave us the operating scars behind Brahmaxis Labs: multi-repo systems, dashboards, infrastructure, local deployment, edge-cloud patterns, and real-world operational workflows."
         />
 
         <div className="mt-8 max-w-3xl">

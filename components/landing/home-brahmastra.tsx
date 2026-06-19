@@ -1,9 +1,12 @@
+"use client";
+
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionHeader } from "@/components/site/section-header";
 import { KitCard } from "@/components/site/kit-card";
 import { Reveal } from "@/components/site/reveal";
 import { BrahmastraTerminal } from "@/components/site/brahmastra-terminal";
+import { useMobileAutoScroll } from "@/hooks/use-mobile-auto-scroll";
 import { BRAHMASTRA_KITS } from "@/lib/site";
 
 const CHIPS = [
@@ -16,6 +19,10 @@ const CHIPS = [
 ];
 
 export function HomeBrahmastra() {
+  const { activeIndex, scrollerRef: kitsScrollerRef } = useMobileAutoScroll<HTMLDivElement>(
+    BRAHMASTRA_KITS.length
+  );
+
   return (
     <section id="brahmastra" className="relative py-24 lg:py-32">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
@@ -69,11 +76,24 @@ export function HomeBrahmastra() {
             <span className="w-8 h-px bg-foreground/30" />
             Vertical kits
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div
+            ref={kitsScrollerRef}
+            className="-mx-6 flex gap-4 overflow-x-auto overscroll-x-contain px-6 pb-4 snap-x snap-mandatory [scrollbar-width:thin] [scrollbar-color:color-mix(in_oklch,var(--brand)_45%,transparent)_transparent] sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-4 sm:overflow-visible sm:px-0 sm:pb-0 lg:grid-cols-4"
+          >
             {BRAHMASTRA_KITS.map((kit, i) => (
-              <Reveal key={kit.name} delay={(i % 4) * 60} className="h-full">
+              <Reveal key={kit.name} delay={(i % 4) * 60} className="h-full min-w-[82vw] snap-start sm:min-w-0">
                 <KitCard name={kit.name} desc={kit.desc} icon={kit.icon} />
               </Reveal>
+            ))}
+          </div>
+          <div className="mt-2 flex justify-center gap-2 sm:hidden" aria-hidden="true">
+            {BRAHMASTRA_KITS.map((kit, index) => (
+              <span
+                key={kit.name}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeIndex === index ? "w-6 bg-brand" : "w-1.5 bg-foreground/20"
+                }`}
+              />
             ))}
           </div>
         </div>

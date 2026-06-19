@@ -12,7 +12,7 @@ export function HomeFounderProof() {
         <SectionHeader
           eyebrow="Experience-backed"
           title="Experience-backed product engineering"
-          intro="Brahmaxis is built around hands-on engineering experience across revenue-critical platforms — not generic outsourced development."
+          intro="Brahmaxis Labs is built around hands-on engineering experience across revenue-critical platforms — not generic outsourced development."
         />
 
         <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

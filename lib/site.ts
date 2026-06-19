@@ -25,8 +25,8 @@ import {
  */
 
 export const SITE = {
-  name: "BrahmAxis Labs",
-  shortName: "Brahmaxis",
+  name: "Brahmaxis Labs",
+  shortName: "Brahmaxis Labs",
   email: "hello@brahmaxis.com",
   domain: "brahmaxis.com",
   tagline: "Product engineering for revenue, data, and operations systems.",
@@ -385,7 +385,7 @@ export const PROCESS: { num: string; title: string; desc: string }[] = [
 
 export const FAQS: { q: string; a: string }[] = [
   {
-    q: "Is Brahmaxis only an IoT company?",
+    q: "Is Brahmaxis Labs only an IoT company?",
     a: "No. IoT and edge-cloud systems are one part of our work. We also build eCommerce automation, AdTech workflows, SaaS MVPs, data dashboards, internal tools, infrastructure, and production systems.",
   },
   {
@@ -394,7 +394,7 @@ export const FAQS: { q: string; a: string }[] = [
   },
   {
     q: "Do you build simple websites?",
-    a: "Only when they are part of a larger product or business system. Brahmaxis is not positioned as a low-cost website agency.",
+    a: "Only when they are part of a larger product or business system. Brahmaxis Labs is not positioned as a low-cost website agency.",
   },
   {
     q: "Can you work with non-technical founders?",

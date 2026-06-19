@@ -24,7 +24,7 @@ export function HomePain() {
                 to operate after launch.
               </p>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Brahmaxis helps teams build the system behind the product — not just the interface
+                Brahmaxis Labs helps teams build the system behind the product — not just the interface
                 people click.
               </p>
             </div>

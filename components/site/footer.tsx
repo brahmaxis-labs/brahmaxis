@@ -53,7 +53,7 @@ export function Footer() {
               </p>
 
               <a
-                href={`mailto:${SITE.email}?subject=Project%20enquiry%20for%20BrahmAxis%20Labs`}
+                href={`mailto:${SITE.email}?subject=Project%20enquiry%20for%20Brahmaxis%20Labs`}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors"
               >
                 {SITE.email}
@@ -91,7 +91,7 @@ export function Footer() {
 
         <div className="py-8 border-t border-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} BrahmAxis Labs. All rights reserved.
+            © {new Date().getFullYear()} Brahmaxis Labs. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-2">
