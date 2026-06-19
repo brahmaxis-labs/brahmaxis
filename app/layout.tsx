@@ -1,5 +1,6 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
+import Script from 'next/script'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Navbar } from '@/components/site/navbar'
@@ -9,6 +10,7 @@ import './globals.css'
 
 const title = 'Brahmaxis Labs — Product Engineering for Revenue, Data and Operations Systems'
 const description = 'Brahmaxis Labs builds eCommerce automation, AdTech workflows, SaaS MVPs, dashboards, internal tools, infrastructure, and edge-cloud systems for founders and teams building serious software.'
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://brahmaxis.com'),
@@ -72,6 +74,22 @@ export default function RootLayout({
   return (
     <html lang="en" className={`dark ${GeistSans.variable} ${GeistMono.variable}`}>
       <body className="font-sans antialiased">
+        {gaMeasurementId && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', ${JSON.stringify(gaMeasurementId)});
+              `}
+            </Script>
+          </>
+        )}
         {/* Warm up Calendly connections early; the idle client warmup below loads the widget script. */}
         <link rel="preconnect" href="https://assets.calendly.com" />
         <link rel="preconnect" href="https://calendly.com" />
