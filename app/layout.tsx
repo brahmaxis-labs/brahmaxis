@@ -2,7 +2,6 @@ import React from "react"
 import type { Metadata, Viewport } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import { Analytics } from '@vercel/analytics/next'
 import { Navbar } from '@/components/site/navbar'
 import { Footer } from '@/components/site/footer'
 import { CalendlyWarmup } from '@/components/site/calendly-warmup'
@@ -78,7 +77,6 @@ export default function RootLayout({
         <Navbar />
         <main className="relative min-h-screen overflow-x-hidden noise-overlay">{children}</main>
         <Footer />
-        <Analytics />
       </body>
     </html>
   )
