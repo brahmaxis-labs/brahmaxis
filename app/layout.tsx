@@ -40,11 +40,20 @@ export const metadata: Metadata = {
     siteName: 'BrahmAxis Labs',
     title,
     description,
+    images: [
+      {
+        url: '/brand/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Brahmaxis Labs product engineering brand banner',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title,
     description,
+    images: ['/brand/og-image.png'],
   },
 }
 

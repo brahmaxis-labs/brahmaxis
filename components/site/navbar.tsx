@@ -9,14 +9,12 @@ import { NAV_LINKS, SERVICES } from "@/lib/site";
 
 function Logo({ onClick }: { onClick?: () => void }) {
   return (
-    <Link href="/" onClick={onClick} className="flex items-center gap-2.5 group shrink-0">
-      <span className="relative flex h-6 w-6 items-center justify-center" aria-hidden>
-        <span className="absolute inset-0 rounded-md bg-brand/15 ring-1 ring-brand/40" />
-        <span className="h-3 w-3 rounded-[3px] bg-brand rotate-45 transition-transform duration-500 group-hover:rotate-[135deg]" />
-      </span>
-      <span className="font-display font-semibold tracking-tight text-lg">
-        BrahmAxis<span className="font-normal text-muted-foreground"> Labs</span>
-      </span>
+    <Link href="/" onClick={onClick} className="flex items-center group shrink-0">
+      <img
+        src="/brand/logo-light.png"
+        alt="Brahmaxis Labs"
+        className="h-9 w-auto object-contain transition-transform duration-500 group-hover:scale-[1.02] sm:h-10"
+      />
     </Link>
   );
 }
