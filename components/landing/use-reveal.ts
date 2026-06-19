@@ -11,7 +11,7 @@ import { useEffect, useRef, useState } from "react";
  * The element is shown immediately if it is already within `offset` of the
  * viewport on mount, so content is never stuck hidden.
  */
-export function useReveal<T extends HTMLElement = HTMLDivElement>(offset = 0.85) {
+export function useReveal<T extends HTMLElement = HTMLDivElement>(offset = 0.95) {
   const ref = useRef<T>(null);
   const [inView, setInView] = useState(false);
 
@@ -23,7 +23,10 @@ export function useReveal<T extends HTMLElement = HTMLDivElement>(offset = 0.85)
     const check = () => {
       if (done) return;
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * offset && rect.bottom > 0) {
+      // Reveal once the top has reached the trigger line. No lower bound, so
+      // fast/momentum scrolling (or a jump) that skips the element still
+      // reveals it instead of leaving it permanently hidden.
+      if (rect.top < window.innerHeight * offset) {
         done = true;
         setInView(true);
         window.removeEventListener("scroll", check);
