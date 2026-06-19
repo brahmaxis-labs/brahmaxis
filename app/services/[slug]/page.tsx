@@ -8,7 +8,10 @@ import { ServiceCard } from "@/components/site/service-card";
 import { EngagementCard } from "@/components/site/engagement-card";
 import { Reveal } from "@/components/site/reveal";
 import { CTASection } from "@/components/site/cta-section";
+import { FAQAccordion } from "@/components/site/faq-accordion";
+import { JsonLd } from "@/components/site/json-ld";
 import { SERVICES, ENGAGEMENTS, serviceBySlug } from "@/lib/site";
+import { faqPageJsonLd, pageMetadata, serviceFaqs } from "@/lib/seo";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -20,11 +23,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const service = serviceBySlug(slug);
   if (!service) return {};
-  return {
+  return pageMetadata({
     title: service.name,
     description: service.summary,
-    alternates: { canonical: `/services/${service.slug}` },
-  };
+    path: `/services/${service.slug}`,
+  });
 }
 
 export default async function ServiceDetailPage({ params }: Params) {
@@ -34,9 +37,11 @@ export default async function ServiceDetailPage({ params }: Params) {
 
   const engagement = ENGAGEMENTS.find((e) => e.name === service.engagement) ?? ENGAGEMENTS[0];
   const related = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const faqs = serviceFaqs(service);
 
   return (
     <>
+      <JsonLd data={faqPageJsonLd(faqs, `/services/${service.slug}`)} />
       <PageHero
         eyebrow={`Service · ${service.num}`}
         title={service.name}
@@ -57,14 +62,20 @@ export default async function ServiceDetailPage({ params }: Params) {
             <div>
               <span className="inline-flex items-center gap-3 text-sm font-mono text-muted-foreground mb-6">
                 <span className="w-8 h-px bg-foreground/30" />
-                What we build
+                Problem statement
               </span>
-              <p className="text-xl text-muted-foreground leading-relaxed">{service.summary}</p>
+              <h2 className="text-3xl lg:text-4xl font-display font-semibold tracking-tight">
+                The work this service is built for.
+              </h2>
+              <p className="mt-5 text-xl text-muted-foreground leading-relaxed">
+                Teams come to Brahmaxis Labs when {service.short.toLowerCase()} work has become too
+                manual, brittle, slow to measure, or risky to scale through disconnected tools.
+              </p>
 
               <div className="mt-12 grid sm:grid-cols-2 gap-10">
                 <div>
                   <div className="font-mono text-xs uppercase tracking-wider text-brand-soft mb-4">
-                    Best for
+                    Who it is for
                   </div>
                   <ul className="space-y-2.5">
                     {service.bestFor.map((b) => (
@@ -77,7 +88,7 @@ export default async function ServiceDetailPage({ params }: Params) {
                 </div>
                 <div>
                   <div className="font-mono text-xs uppercase tracking-wider text-brand-soft mb-4">
-                    Typical outcomes
+                    What Brahmaxis Labs delivers
                   </div>
                   <ul className="space-y-2.5">
                     {service.outcomes.map((o) => (
@@ -89,6 +100,17 @@ export default async function ServiceDetailPage({ params }: Params) {
                   </ul>
                 </div>
               </div>
+
+              <div className="mt-12 rounded-2xl border border-border bg-card/40 p-8">
+                <h2 className="text-2xl font-display font-semibold tracking-tight">
+                  What we build
+                </h2>
+                <p className="mt-4 text-muted-foreground leading-relaxed">{service.summary}</p>
+                <p className="mt-4 text-muted-foreground leading-relaxed">{service.build}</p>
+                <Button asChild className="mt-8 rounded-full bg-brand hover:bg-brand/90 text-brand-foreground">
+                  <Link href="/contact">Book a Discovery Call</Link>
+                </Button>
+              </div>
             </div>
 
             {/* Engagement */}
@@ -98,6 +120,22 @@ export default async function ServiceDetailPage({ params }: Params) {
               </div>
               <EngagementCard engagement={engagement} />
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="relative py-20 lg:py-24 border-t border-foreground/10">
+        <div className="max-w-3xl mx-auto px-6 lg:px-12">
+          <span className="inline-flex items-center justify-center gap-3 text-sm font-mono text-muted-foreground mb-6 w-full">
+            <span className="w-8 h-px bg-foreground/30" />
+            FAQ
+            <span className="w-8 h-px bg-foreground/30" />
+          </span>
+          <h2 className="text-center text-3xl lg:text-5xl font-display font-semibold tracking-tight">
+            {service.short} questions, answered.
+          </h2>
+          <div className="mt-12">
+            <FAQAccordion items={faqs} />
           </div>
         </div>
       </section>

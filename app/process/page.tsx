@@ -3,13 +3,16 @@ import { PageHero } from "@/components/site/page-hero";
 import { ProcessSteps } from "@/components/site/process-steps";
 import { HowItWorksSection } from "@/components/landing/how-it-works-section";
 import { CTASection } from "@/components/site/cta-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const description =
+  "How Brahmaxis Labs works: diagnose, architect, build, deploy, and improve — a clear path from business problem to a system that runs in production.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Process",
-  description:
-    "How Brahmaxis Labs works: diagnose, architect, build, deploy, and improve — a clear path from business problem to a system that runs in production.",
-  alternates: { canonical: "/process" },
-};
+  description,
+  path: "/process",
+});
 
 export default function ProcessPage() {
   return (

@@ -6,13 +6,16 @@ import { ProofCard } from "@/components/site/proof-card";
 import { Reveal } from "@/components/site/reveal";
 import { CTASection } from "@/components/site/cta-section";
 import { EXPERIENCE_MAP, FOUNDER_PROOF, PARKTEK_MODULES, ANON_PROOF, LEGAL_NOTES } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const description =
+  "Brahmaxis Labs is built on hands-on experience shipping revenue-critical, operational, and infrastructure-heavy software systems — proven through ParkTek, without exposing IP.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Proof & Case Studies",
-  description:
-    "Brahmaxis Labs is built on hands-on experience shipping revenue-critical, operational, and infrastructure-heavy software systems — proven through ParkTek, without exposing IP.",
-  alternates: { canonical: "/proof" },
-};
+  description,
+  path: "/proof",
+});
 
 export default function ProofPage() {
   return (

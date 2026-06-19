@@ -414,6 +414,44 @@ export const FAQS: { q: string; a: string }[] = [
   },
 ];
 
+export const SERVICES_FAQS: { q: string; a: string }[] = [
+  {
+    q: "Which service should I choose first?",
+    a: "If the problem is still fuzzy, start with discovery or Fractional CTO support. If the workflow is already clear, we can start with the closest sprint, such as SaaS MVP, marketplace automation, AdOps, dashboards, infrastructure, or edge-cloud.",
+  },
+  {
+    q: "Can Brahmaxis Labs work with an existing product?",
+    a: "Yes. We can audit the current system, stabilize infrastructure, build missing dashboards or workflows, and add new product capabilities without forcing a full rewrite.",
+  },
+  {
+    q: "Do you only take full product builds?",
+    a: "No. Some projects are scoped sprints for one workflow, dashboard, integration, deployment cleanup, or architecture decision. The right shape depends on risk, urgency, and business value.",
+  },
+  {
+    q: "How quickly can a service engagement start?",
+    a: "Most work starts after a discovery call and scoped plan. Small audits or discovery sprints can usually begin faster than full builds because requirements and access needs are narrower.",
+  },
+];
+
+export const BRAHMASTRA_FAQS: { q: string; a: string }[] = [
+  {
+    q: "Can clients buy Brahmastra directly?",
+    a: "No. Brahmastra is currently an internal Brahmaxis Labs delivery accelerator, not a public SaaS or no-code product.",
+  },
+  {
+    q: "How does Brahmastra help a client project?",
+    a: "It helps us reuse proven architecture patterns, templates, documentation standards, deployment playbooks, and vertical kits so more time goes into the client-specific business problem.",
+  },
+  {
+    q: "Does Brahmastra replace custom engineering?",
+    a: "No. It speeds up repeated setup and delivery work, but architecture decisions, integrations, product behavior, testing, and production readiness still need engineering judgment.",
+  },
+  {
+    q: "Which project types benefit most from Brahmastra?",
+    a: "It is most useful for SaaS foundations, dashboards, internal tools, marketplace workflows, AdOps systems, infrastructure cleanup, and edge-cloud operational software.",
+  },
+];
+
 /* ------------------------------------------------- experience map ---- */
 
 export const EXPERIENCE_MAP: { domain: string; built: string; help: string }[] = [

@@ -6,18 +6,24 @@ import { PageHero } from "@/components/site/page-hero";
 import { ServiceCard } from "@/components/site/service-card";
 import { Reveal } from "@/components/site/reveal";
 import { CTASection } from "@/components/site/cta-section";
-import { SERVICES } from "@/lib/site";
+import { FAQAccordion } from "@/components/site/faq-accordion";
+import { JsonLd } from "@/components/site/json-ld";
+import { SERVICES, SERVICES_FAQS } from "@/lib/site";
+import { faqPageJsonLd, pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const description =
+  "From marketplace automation and AdTech workflows to SaaS MVPs, dashboards, infrastructure, and edge-cloud systems — Brahmaxis Labs builds the software behind business execution.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Services",
-  description:
-    "From marketplace automation and AdTech workflows to SaaS MVPs, dashboards, infrastructure, and edge-cloud systems — Brahmaxis Labs builds the software behind business execution.",
-  alternates: { canonical: "/services" },
-};
+  description,
+  path: "/services",
+});
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd data={faqPageJsonLd(SERVICES_FAQS, "/services")} />
       <PageHero
         eyebrow="Services"
         title={
@@ -120,6 +126,22 @@ export default function ServicesPage() {
           </section>
         ))}
       </div>
+
+      <section id="faq" className="relative py-20 lg:py-28">
+        <div className="max-w-3xl mx-auto px-6 lg:px-12">
+          <span className="inline-flex items-center justify-center gap-3 text-sm font-mono text-muted-foreground mb-6 w-full">
+            <span className="w-8 h-px bg-foreground/30" />
+            FAQ
+            <span className="w-8 h-px bg-foreground/30" />
+          </span>
+          <h2 className="text-center text-3xl lg:text-5xl font-display font-semibold tracking-tight">
+            Service questions, answered.
+          </h2>
+          <div className="mt-12">
+            <FAQAccordion items={SERVICES_FAQS} />
+          </div>
+        </div>
+      </section>
 
       <CTASection
         title="Not sure which service fits?"

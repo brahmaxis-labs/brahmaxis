@@ -5,18 +5,24 @@ import { KitCard } from "@/components/site/kit-card";
 import { Reveal } from "@/components/site/reveal";
 import { BrahmastraTerminal } from "@/components/site/brahmastra-terminal";
 import { CTASection } from "@/components/site/cta-section";
-import { BRAHMASTRA_KITS, BRAHMASTRA_CLIENT_VALUE, BRAHMASTRA_NOT } from "@/lib/site";
+import { FAQAccordion } from "@/components/site/faq-accordion";
+import { JsonLd } from "@/components/site/json-ld";
+import { BRAHMASTRA_KITS, BRAHMASTRA_CLIENT_VALUE, BRAHMASTRA_NOT, BRAHMASTRA_FAQS } from "@/lib/site";
+import { faqPageJsonLd, pageMetadata, softwareApplicationJsonLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const description =
+  "Brahmastra is Brahmaxis Labs' internal product engineering accelerator — reusable architecture, CLI workflows, templates, deployment playbooks, and vertical kits. It is not a public no-code tool.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Brahmastra — Internal Engineering Accelerator",
-  description:
-    "Brahmastra is Brahmaxis Labs' internal product engineering accelerator — reusable architecture, CLI workflows, templates, deployment playbooks, and vertical kits. It is not a public no-code tool.",
-  alternates: { canonical: "/brahmastra" },
-};
+  description,
+  path: "/brahmastra",
+});
 
 export default function BrahmastraPage() {
   return (
     <>
+      <JsonLd data={[softwareApplicationJsonLd(), faqPageJsonLd(BRAHMASTRA_FAQS, "/brahmastra")]} />
       <PageHero
         eyebrow="Brahmastra"
         title={
@@ -103,6 +109,22 @@ export default function BrahmastraPage() {
                 ))}
               </ul>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="relative py-20 lg:py-28 border-t border-foreground/10">
+        <div className="max-w-3xl mx-auto px-6 lg:px-12">
+          <span className="inline-flex items-center justify-center gap-3 text-sm font-mono text-muted-foreground mb-6 w-full">
+            <span className="w-8 h-px bg-foreground/30" />
+            FAQ
+            <span className="w-8 h-px bg-foreground/30" />
+          </span>
+          <h2 className="text-center text-3xl lg:text-5xl font-display font-semibold tracking-tight">
+            Brahmastra questions, answered.
+          </h2>
+          <div className="mt-12">
+            <FAQAccordion items={BRAHMASTRA_FAQS} />
           </div>
         </div>
       </section>

@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/site/page-hero";
 import { BookingSection } from "@/components/site/booking-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+const description =
+  "Book a free 30-minute strategy call with the Brahmaxis Labs team — product roadmap, architecture, AI opportunities, scaling, and a clear next step. Free for the first 50 founder consultations.";
+
+export const metadata: Metadata = pageMetadata({
   title: "Book a Free Strategy Call",
-  description:
-    "Book a free 30-minute strategy call with the Brahmaxis Labs team — product roadmap, architecture, AI opportunities, scaling, and a clear next step. Free for the first 50 founder consultations.",
-  alternates: { canonical: "/contact" },
-};
+  description,
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (
