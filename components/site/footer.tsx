@@ -58,6 +58,16 @@ export function Footer() {
               >
                 {SITE.email}
               </a>
+              <div className="mt-4">
+                <a
+                  href={SITE.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  LinkedIn
+                </a>
+              </div>
             </div>
 
             {columns.map((col) => (

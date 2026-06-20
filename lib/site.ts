@@ -29,6 +29,7 @@ export const SITE = {
   shortName: "Brahmaxis Labs",
   email: "hello@brahmaxis.com",
   domain: "brahmaxis.com",
+  linkedin: "https://www.linkedin.com/company/brahmaxis-labs",
   tagline: "Product engineering for revenue, data, and operations systems.",
 } as const;
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/site/page-hero";
 import { BookingSection } from "@/components/site/booking-section";
+import { SITE } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
 const description =
@@ -25,6 +26,22 @@ export default function ContactPage() {
         sub="Discuss your product, architecture, AI opportunities, scaling challenges, or technical roadmap with the Brahmaxis Labs team."
       />
       <BookingSection />
+      <section className="relative pb-20">
+        <div className="mx-auto max-w-[1180px] px-6 lg:px-12">
+          <p className="text-sm text-muted-foreground">
+            Follow Brahmaxis Labs on{" "}
+            <a
+              href={SITE.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand hover:underline underline-offset-4"
+            >
+              LinkedIn
+            </a>
+            .
+          </p>
+        </div>
+      </section>
     </>
   );
 }

@@ -62,6 +62,7 @@ export function organizationJsonLd() {
     url: SITE_URL,
     logo: absoluteUrl("/brand/logo-dark.png"),
     email: SITE.email,
+    sameAs: [SITE.linkedin],
     description:
       "Brahmaxis Labs builds product engineering systems for revenue, data, operations, infrastructure, and edge-cloud teams.",
   };

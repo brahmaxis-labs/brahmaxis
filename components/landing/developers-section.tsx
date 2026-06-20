@@ -5,7 +5,7 @@ import { useReveal } from "./use-reveal";
 
 const team = [
   { name: "Kushal", initials: "K", role: "Product architecture · CTO leadership · Edge-cloud systems · Consulting delivery", linkedin: "https://www.linkedin.com/in/kushalg/" },
-  { name: "Shruti", initials: "S", role: "Website · Product design · Frontend · Client experience · Full-stack development", linkedin: "https://www.linkedin.com/in/shruti-agarwal-ac1422/" },
+  { name: "Shruti", initials: "S", role: "Website · Product design · Frontend · Client experience · Full-stack development" },
   { name: "Akash", initials: "A", role: "Engineering · Backend · Platform · Data · Infrastructure" },
   { name: "Rajat", initials: "R", role: "Product architecture · Software engineering · Consulting delivery · Execution" },
 ];
