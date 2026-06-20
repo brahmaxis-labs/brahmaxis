@@ -38,6 +38,14 @@ export const metadata: Metadata = {
     google: "S1OfFtgyX1j7yu_isav2MJUVpHiDoHX_XoWj7KDBbEs",
   },
   alternates: { canonical: '/' },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
+    shortcut: '/favicon.ico',
+    apple: '/favicon.png',
+  },
   openGraph: {
     type: 'website',
     url: 'https://brahmaxis.com',
