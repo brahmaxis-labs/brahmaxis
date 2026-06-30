@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { PageHero } from "@/components/site/page-hero";
-import { BookingSection } from "@/components/site/booking-section";
+import { ContactSection } from "@/components/site/contact-section";
 import { SITE } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
 const description =
-  "Book a free 30-minute strategy call with the Brahmaxis Labs team — product roadmap, architecture, AI opportunities, scaling, and a clear next step. Free for the first 50 founder consultations.";
+  "Contact Brahmaxis Labs about product engineering, SaaS MVPs, dashboards, automation, infrastructure, AI opportunities, scaling, and technical roadmap questions.";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Book a Free Strategy Call",
+  title: "Contact Us",
   description,
   path: "/contact",
 });
@@ -17,15 +17,15 @@ export default function ContactPage() {
   return (
     <>
       <PageHero
-        eyebrow="Free strategy call"
+        eyebrow="Contact"
         title={
           <>
-            Book a Free <span className="text-gradient-brand">Strategy Call.</span>
+            Contact <span className="text-gradient-brand">Brahmaxis Labs.</span>
           </>
         }
-        sub="Discuss your product, architecture, AI opportunities, scaling challenges, or technical roadmap with the Brahmaxis Labs team."
+        sub="Tell us about your product, workflow, dashboard, integration, infrastructure, AI opportunity, scaling challenge, or technical roadmap."
       />
-      <BookingSection />
+      <ContactSection />
       <section className="relative pb-20">
         <div className="mx-auto max-w-[1180px] px-6 lg:px-12">
           <p className="text-sm text-muted-foreground">

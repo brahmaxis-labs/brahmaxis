@@ -28,6 +28,7 @@ export const SITE = {
   name: "Brahmaxis Labs",
   shortName: "Brahmaxis Labs",
   email: "hello@brahmaxis.com",
+  contactEmail: "shruti@brahmaxis.com",
   domain: "brahmaxis.com",
   linkedin: "https://www.linkedin.com/company/brahmaxis-labs",
   tagline: "Product engineering for revenue, data, and operations systems.",

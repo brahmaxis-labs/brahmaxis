@@ -5,7 +5,6 @@ import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
 import { Navbar } from '@/components/site/navbar'
 import { Footer } from '@/components/site/footer'
-import { CalendlyWarmup } from '@/components/site/calendly-warmup'
 import './globals.css'
 
 const title = 'Brahmaxis Labs — Product Engineering for Revenue, Data and Operations Systems'
@@ -98,11 +97,6 @@ export default function RootLayout({
             </Script>
           </>
         )}
-        {/* Warm up Calendly connections early; the idle client warmup below loads the widget script. */}
-        <link rel="preconnect" href="https://assets.calendly.com" />
-        <link rel="preconnect" href="https://calendly.com" />
-        <link rel="dns-prefetch" href="https://calendly.com" />
-        <CalendlyWarmup />
         <Navbar />
         <main className="relative min-h-screen overflow-x-hidden noise-overlay">{children}</main>
         <Footer />
