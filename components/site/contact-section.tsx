@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useState } from "react";
 import { ArrowRight, Mail, MessageSquare, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,9 @@ const CONTACT_BENEFITS = [
   "Scaling recommendations",
   "Actionable next steps",
 ];
+
+const WEB3FORMS_ACCESS_KEY = "06635344-5077-438e-9420-f709def6d067";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 
 type FormState = {
   name: string;
@@ -36,30 +39,52 @@ const initialState: FormState = {
 
 export function ContactSection() {
   const [form, setForm] = useState<FormState>(initialState);
-
-  const mailtoHref = useMemo(() => {
-    const subject = `Project enquiry from ${form.name || "Brahmaxis Labs website"}`;
-    const body = [
-      `Name: ${form.name}`,
-      `Email: ${form.email}`,
-      `Company: ${form.company || "Not provided"}`,
-      `Phone / WhatsApp: ${form.phone || "Not provided"}`,
-      `Service interested in: ${form.service || "Not sure yet"}`,
-      "",
-      "Project details:",
-      form.details,
-    ].join("\n");
-
-    return `mailto:${SITE.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  }, [form]);
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
   const update = (key: keyof FormState, value: string) => {
     setForm((current) => ({ ...current, [key]: value }));
   };
 
-  const submit = (event: FormEvent<HTMLFormElement>) => {
+  const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    window.location.href = mailtoHref;
+    setStatus("sending");
+    setStatusMessage("Sending your message...");
+
+    try {
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Brahmaxis Labs enquiry from ${form.name}`,
+          from_name: form.name,
+          email: form.email,
+          company: form.company || "Not provided",
+          phone: form.phone || "Not provided",
+          service: form.service || "Not sure yet",
+          message: form.details,
+          botcheck: "",
+        }),
+      });
+      const result = (await response.json()) as { success?: boolean; message?: string };
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Message could not be sent.");
+      }
+
+      setForm(initialState);
+      setStatus("success");
+      setStatusMessage("Thanks. Your message was sent. We will get back to you soon.");
+    } catch {
+      setStatus("error");
+      setStatusMessage(
+        `Something went wrong. Please email ${SITE.contactEmail} directly and we will help.`
+      );
+    }
   };
 
   return (
@@ -181,14 +206,19 @@ export function ContactSection() {
               <Button
                 type="submit"
                 size="lg"
+                disabled={status === "sending"}
                 className="mt-7 h-14 w-full rounded-full bg-brand text-base text-brand-foreground shadow-lg shadow-brand/20 hover:bg-brand/90"
               >
-                Send Email
+                {status === "sending" ? "Sending..." : "Send Message"}
                 <Send className="h-4 w-4" />
               </Button>
-              <p className="mt-4 text-center text-xs text-muted-foreground">
-                This opens your email app with a prefilled message to {SITE.contactEmail}.
-              </p>
+              <div className="mt-4 min-h-5 text-center text-xs" aria-live="polite">
+                {statusMessage && (
+                  <p className={status === "error" ? "text-destructive" : "text-muted-foreground"}>
+                    {statusMessage}
+                  </p>
+                )}
+              </div>
             </form>
           </Reveal>
         </div>
